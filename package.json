@@ -4,7 +4,6 @@
     "version": "0.0.1",
     "dependencies": {
         "node-red-contrib-influxdb": "0.4.1",
-        "node-red-contrib-state": "1.5.0",
         "node-red-dashboard": "2.23.2"
     },
     "node-red": {
