@@ -7,7 +7,10 @@
         "node-red-dashboard": "2.23.2",
         "node-red-contrib-state": "1.5.0",
         "node-red-contrib-pid": "1.1.6",
-        "node-red-node-serialport": "0.11.0"
+        "node-red-node-serialport": "0.11.0",
+        "node-red-contrib-flogger": "1.2.2",
+        "node-red-contrib-semaphore": "1.0.1",
+        "node-red-node-pi-gpio": "1.2.3"
     },
     "node-red": {
         "settings": {
