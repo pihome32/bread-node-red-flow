@@ -31,7 +31,7 @@
         "id": "f3388dca.68aa58",
         "type": "tab",
         "label": "Particle",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -52,14 +52,14 @@
         "id": "a9ff2c82.a800b8",
         "type": "tab",
         "label": "Program",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "79181113.88878",
         "type": "tab",
         "label": "Flow 1",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -585,8 +585,8 @@
         "name": "Debug",
         "icon": "wrench",
         "order": 2,
-        "disabled": true,
-        "hidden": true
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "258e5760.ba84a8",
@@ -1589,6 +1589,11 @@
         "topic": "",
         "qos": "",
         "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
         "broker": "74dcdab5.83e964",
         "x": 1150,
         "y": 280,
@@ -2098,7 +2103,8 @@
                 "44c0e633.469948",
                 "90fecdb9.0196e8",
                 "e5844ef8.fcccd",
-                "ed0c571f.c481b"
+                "ed0c571f.c481b",
+                "f490efc.656331"
             ]
         ]
     },
@@ -2132,9 +2138,7 @@
         "x": 550,
         "y": 160,
         "wires": [
-            [
-                "3c9726a2.f5aa6a"
-            ]
+            []
         ]
     },
     {
@@ -2201,9 +2205,7 @@
         "x": 450,
         "y": 420,
         "wires": [
-            [
-                "5e56dbea.04ddfc"
-            ]
+            []
         ]
     },
     {
@@ -2377,9 +2379,7 @@
         "x": 515,
         "y": 360,
         "wires": [
-            [
-                "b87c4996.042d98"
-            ]
+            []
         ]
     },
     {
@@ -3577,6 +3577,11 @@
         "topic": "tinkerforge/request/industrial_dual_relay_bricklet/FLM/set_value",
         "qos": "",
         "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
         "broker": "74dcdab5.83e964",
         "x": 900,
         "y": 100,
@@ -5054,9 +5059,7 @@
         "x": 450,
         "y": 680,
         "wires": [
-            [
-                "5e56dbea.04ddfc"
-            ]
+            []
         ]
     },
     {
@@ -6409,9 +6412,7 @@
         "x": 630,
         "y": 100,
         "wires": [
-            [
-                "1ae33702.58cce1"
-            ]
+            []
         ]
     },
     {
@@ -7417,5 +7418,55 @@
             [],
             []
         ]
+    },
+    {
+        "id": "4685ba7b.864154",
+        "type": "mqtt in",
+        "z": "18b8c7ac.07eee8",
+        "name": "",
+        "topic": "#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "74dcdab5.83e964",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 780,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ae09dc27.4624e",
+        "type": "debug",
+        "z": "18b8c7ac.07eee8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f490efc.656331",
+        "type": "debug",
+        "z": "f3388dca.68aa58",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 200,
+        "y": 540,
+        "wires": []
     }
 ]
