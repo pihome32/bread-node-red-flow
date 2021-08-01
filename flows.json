@@ -1,12 +1,5 @@
 [
     {
-        "id": "18b8c7ac.07eee8",
-        "type": "tab",
-        "label": "Debug",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "64672e75.03f4a8",
         "type": "tab",
         "label": "CMD",
@@ -53,6 +46,27 @@
         "type": "tab",
         "label": "Program",
         "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "ef7332d8.b66878",
+        "type": "tab",
+        "label": "HA",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6ffc7dda.e666ec",
+        "type": "tab",
+        "label": "Readme",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b75a5ea0.a8f4e8",
+        "type": "tab",
+        "label": "Startup",
+        "disabled": false,
         "info": ""
     },
     {
@@ -225,21 +239,9 @@
         "responsetimeout": "10000"
     },
     {
-        "id": "4df5a172.d77308",
-        "type": "influxdb",
-        "z": "18b8c7ac.07eee8",
-        "hostname": "influxdb",
-        "port": "8086",
-        "database": "home",
-        "name": "aTimeSeries",
-        "usetls": false,
-        "tls": "",
-        "influxdbVersion": "1.x"
-    },
-    {
         "id": "ddc00501.5975f8",
         "type": "shared-state",
-        "name": "relay1",
+        "name": "heaterRelay",
         "lbl": "",
         "tags": "",
         "historyCount": "2",
@@ -255,7 +257,7 @@
     {
         "id": "c8491213.eb9958",
         "type": "shared-state",
-        "name": "relay3",
+        "name": "enclosureFan",
         "lbl": "",
         "tags": "",
         "historyCount": "2",
@@ -271,7 +273,7 @@
     {
         "id": "b57179f0.c9eaa",
         "type": "shared-state",
-        "name": "relay2",
+        "name": "coolerRelay",
         "lbl": "",
         "tags": "",
         "historyCount": "2",
@@ -287,7 +289,7 @@
     {
         "id": "1dc4d413.03488c",
         "type": "shared-state",
-        "name": "relay4",
+        "name": "powerRelay",
         "lbl": "",
         "tags": "",
         "historyCount": "2",
@@ -339,7 +341,7 @@
         "lbl": "",
         "tags": "",
         "historyCount": "2",
-        "dataType": "str",
+        "dataType": "num",
         "boolType": "bool",
         "boolStrTrue": "",
         "boolStrFalse": "",
@@ -403,7 +405,7 @@
         "lbl": "",
         "tags": "",
         "historyCount": "2",
-        "dataType": "num",
+        "dataType": "bool",
         "boolType": "bool",
         "boolStrTrue": "",
         "boolStrFalse": "",
@@ -551,7 +553,8 @@
                 "primary": "indigo",
                 "accents": "blue",
                 "warn": "red",
-                "background": "grey"
+                "background": "grey",
+                "palette": "light"
             }
         },
         "site": {
@@ -1187,8 +1190,7 @@
         "y": 180,
         "wires": [
             [
-                "519dddd5.a6b124",
-                "423532b1.078e74"
+                "519dddd5.a6b124"
             ]
         ]
     },
@@ -1205,8 +1207,7 @@
         "y": 100,
         "wires": [
             [
-                "3a3d4c6a.26f854",
-                "423532b1.078e74"
+                "3a3d4c6a.26f854"
             ]
         ]
     },
@@ -1223,8 +1224,7 @@
         "y": 280,
         "wires": [
             [
-                "1814f859.119ea",
-                "423532b1.078e74"
+                "1814f859.119ea"
             ]
         ]
     },
@@ -1241,8 +1241,7 @@
         "y": 360,
         "wires": [
             [
-                "1a0aeb86.b2dfa4",
-                "423532b1.078e74"
+                "1a0aeb86.b2dfa4"
             ]
         ]
     },
@@ -1254,8 +1253,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 390,
-        "y": 120,
+        "x": 370,
+        "y": 180,
         "wires": [
             [
                 "74f57265.f82724"
@@ -1281,8 +1280,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 560,
-        "y": 120,
+        "x": 550,
+        "y": 180,
         "wires": [
             [
                 "17abac16.668be4"
@@ -1298,7 +1297,7 @@
         "action": "",
         "pretty": false,
         "x": 410,
-        "y": 200,
+        "y": 80,
         "wires": [
             [
                 "b1bdd7c1.448ec"
@@ -1356,8 +1355,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 580,
-        "y": 200,
+        "x": 570,
+        "y": 80,
         "wires": [
             [
                 "1bb22e0e.5a2d4a"
@@ -1606,7 +1605,7 @@
         "expiry": "",
         "broker": "74dcdab5.83e964",
         "x": 1150,
-        "y": 280,
+        "y": 220,
         "wires": []
     },
     {
@@ -1617,8 +1616,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 970,
-        "y": 280,
+        "x": 930,
+        "y": 180,
         "wires": [
             [
                 "2edb92ac.0ac33e"
@@ -1665,8 +1664,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 280,
+        "x": 640,
+        "y": 180,
         "wires": [
             [
                 "e33b4447.edd14"
@@ -1701,8 +1700,7 @@
                 "8281097c.662558",
                 "39d7cb78.f294ec",
                 "c9c4189a.75f2c",
-                "2f25ad6f.d8f582",
-                "3f50cc07.4473e4"
+                "2f25ad6f.d8f582"
             ]
         ]
     },
@@ -2091,8 +2089,8 @@
         "topic": "",
         "payload": "state.chamberTemp.value",
         "payloadType": "global",
-        "x": 140,
-        "y": 420,
+        "x": 160,
+        "y": 120,
         "wires": [
             [
                 "4a38f99d.c4d1e8"
@@ -2334,50 +2332,6 @@
         ]
     },
     {
-        "id": "e8736c8e.4bf1b",
-        "type": "change",
-        "z": "18b8c7ac.07eee8",
-        "name": "",
-        "rules": [
-            {
-                "t": "delete",
-                "p": "payload",
-                "pt": "msg"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[9]",
-                "tot": "bin"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 780,
-        "y": 260,
-        "wires": [
-            [
-                "4ef20a2.dfce174"
-            ]
-        ]
-    },
-    {
-        "id": "4ef20a2.dfce174",
-        "type": "link out",
-        "z": "18b8c7ac.07eee8",
-        "name": "send-switch-off",
-        "links": [
-            "e3b617d9.1e80f"
-        ],
-        "x": 975,
-        "y": 260,
-        "wires": []
-    },
-    {
         "id": "e3b617d9.1e80f",
         "type": "link in",
         "z": "f3388dca.68aa58",
@@ -2388,64 +2342,6 @@
         ],
         "x": 515,
         "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f4c31b4a.411968",
-        "type": "change",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "setpoint",
-                "pt": "msg",
-                "to": "state.setpoint.value",
-                "tot": "global"
-            },
-            {
-                "t": "set",
-                "p": "chamber",
-                "pt": "msg",
-                "to": "state.chamberTemp.value",
-                "tot": "global"
-            },
-            {
-                "t": "set",
-                "p": "state",
-                "pt": "msg",
-                "to": "state.chamberState.value",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 280,
-        "y": 1000,
-        "wires": [
-            [
-                "27e51d40.9e02d2"
-            ]
-        ]
-    },
-    {
-        "id": "27e51d40.9e02d2",
-        "type": "template",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{setpoint}} {{chamber}} {{state}}",
-        "output": "str",
-        "x": 500,
-        "y": 1000,
         "wires": [
             []
         ]
@@ -2497,71 +2393,6 @@
         ]
     },
     {
-        "id": "1ce3c7b3.9d5738",
-        "type": "set-shared-state",
-        "z": "18b8c7ac.07eee8",
-        "state": "ddc00501.5975f8",
-        "name": "relay1",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 720,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "8eef0fa8.a2597",
-        "type": "set-shared-state",
-        "z": "18b8c7ac.07eee8",
-        "state": "b57179f0.c9eaa",
-        "name": "relay2",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 720,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "2f1963d8.e2c8b4",
-        "type": "set-shared-state",
-        "z": "18b8c7ac.07eee8",
-        "state": "e06ffb1d.7fc6a",
-        "name": "chamberState",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 810,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "9db1a745.e4a1e8",
-        "type": "set-shared-state",
-        "z": "18b8c7ac.07eee8",
-        "state": "e06ffb1d.7fc6a",
-        "name": "chamberState",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 790,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "49589999.04ef2",
-        "type": "set-shared-state",
-        "z": "18b8c7ac.07eee8",
-        "state": "defdd5c9.00f138",
-        "name": "setpoint",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 770,
-        "y": 60,
-        "wires": []
-    },
-    {
         "id": "918c5608.5db458",
         "type": "set-shared-state",
         "z": "c080d81d.548348",
@@ -2596,8 +2427,8 @@
         "triggerOnInit": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 800,
-        "y": 200,
+        "x": 760,
+        "y": 80,
         "wires": []
     },
     {
@@ -2610,20 +2441,7 @@
         "provideOutput": false,
         "outputs": 0,
         "x": 750,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "6e474a8a.4696a4",
-        "type": "set-shared-state",
-        "z": "18b8c7ac.07eee8",
-        "state": "3fd19932.a4ee1e",
-        "name": "DAC",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 680,
-        "y": 640,
+        "y": 180,
         "wires": []
     },
     {
@@ -2644,9 +2462,9 @@
         "type": "get-shared-state",
         "z": "64672e75.03f4a8",
         "state": "ddc00501.5975f8",
-        "name": "relay1",
+        "name": "heaterRelay",
         "triggerOnInit": true,
-        "x": 110,
+        "x": 130,
         "y": 120,
         "wires": [
             [
@@ -2659,9 +2477,9 @@
         "type": "get-shared-state",
         "z": "64672e75.03f4a8",
         "state": "b57179f0.c9eaa",
-        "name": "relay2",
+        "name": "coolerRelay",
         "triggerOnInit": true,
-        "x": 110,
+        "x": 130,
         "y": 180,
         "wires": [
             [
@@ -2685,51 +2503,6 @@
         ]
     },
     {
-        "id": "6548dc38.868a44",
-        "type": "get-shared-state",
-        "z": "c080d81d.548348",
-        "state": "7cc16dfd.c5bd2c",
-        "name": "distance",
-        "triggerOnInit": true,
-        "x": 1000,
-        "y": 360,
-        "wires": [
-            [
-                "7ed7f97c.15ae4"
-            ]
-        ]
-    },
-    {
-        "id": "7f71b06f.1dbde",
-        "type": "get-shared-state",
-        "z": "c080d81d.548348",
-        "state": "6084ef9b.c26b6",
-        "name": "chamberTemp",
-        "triggerOnInit": true,
-        "x": 990,
-        "y": 200,
-        "wires": [
-            [
-                "c5711069.fec2d"
-            ]
-        ]
-    },
-    {
-        "id": "282f76de.2287ca",
-        "type": "get-shared-state",
-        "z": "c080d81d.548348",
-        "state": "4451538c.85ad4c",
-        "name": "roomTemp",
-        "triggerOnInit": true,
-        "x": 980,
-        "y": 120,
-        "wires": [
-            [
-                "f29a88f2.35a49"
-            ]
-        ]
-    },
-    {
         "id": "ddaa2721.6d98a",
         "type": "get-shared-state",
         "z": "64672e75.03f4a8",
@@ -2746,223 +2519,6 @@
         ]
     },
     {
-        "id": "5ed6831d.43f904",
-        "type": "get-shared-state",
-        "z": "18b8c7ac.07eee8",
-        "state": "ddc00501.5975f8",
-        "name": "relay1",
-        "triggerOnInit": true,
-        "x": 230,
-        "y": 480,
-        "wires": [
-            [
-                "7349f45.777760c"
-            ]
-        ]
-    },
-    {
-        "id": "99d370b6.0352a8",
-        "type": "get-shared-state",
-        "z": "18b8c7ac.07eee8",
-        "state": "b57179f0.c9eaa",
-        "name": "relay2",
-        "triggerOnInit": true,
-        "x": 230,
-        "y": 540,
-        "wires": [
-            [
-                "bdc3a7cc.6ca24"
-            ]
-        ]
-    },
-    {
-        "id": "e2296a40.adbd08",
-        "type": "get-shared-state",
-        "z": "18b8c7ac.07eee8",
-        "state": "defdd5c9.00f138",
-        "name": "setpoint",
-        "triggerOnInit": true,
-        "x": 220,
-        "y": 60,
-        "wires": [
-            [
-                "733b3cd.a2b6944"
-            ]
-        ]
-    },
-    {
-        "id": "d3770024.219b48",
-        "type": "get-shared-state",
-        "z": "18b8c7ac.07eee8",
-        "state": "3fd19932.a4ee1e",
-        "name": "DAC",
-        "triggerOnInit": true,
-        "x": 220,
-        "y": 640,
-        "wires": [
-            [
-                "51d9b5f6.707fb4"
-            ]
-        ]
-    },
-    {
-        "id": "7349f45.777760c",
-        "type": "ui_switch",
-        "z": "18b8c7ac.07eee8",
-        "name": "",
-        "label": "Relay 1",
-        "tooltip": "",
-        "group": "47847ae6.02444c",
-        "order": 1,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 490,
-        "y": 460,
-        "wires": [
-            [
-                "1ce3c7b3.9d5738"
-            ]
-        ]
-    },
-    {
-        "id": "bdc3a7cc.6ca24",
-        "type": "ui_switch",
-        "z": "18b8c7ac.07eee8",
-        "name": "",
-        "label": "Relay 2",
-        "tooltip": "",
-        "group": "47847ae6.02444c",
-        "order": 3,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "photon/cmd/Relay",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 490,
-        "y": 520,
-        "wires": [
-            [
-                "8eef0fa8.a2597"
-            ]
-        ]
-    },
-    {
-        "id": "ab18f573.78581",
-        "type": "ui_button",
-        "z": "18b8c7ac.07eee8",
-        "name": "",
-        "group": "47847ae6.02444c",
-        "order": 13,
-        "width": 7,
-        "height": 1,
-        "passthru": false,
-        "label": "Start",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "2",
-        "payloadType": "num",
-        "topic": "",
-        "x": 520,
-        "y": 200,
-        "wires": [
-            [
-                "2f1963d8.e2c8b4"
-            ]
-        ]
-    },
-    {
-        "id": "43953858.aaf258",
-        "type": "ui_button",
-        "z": "18b8c7ac.07eee8",
-        "name": "",
-        "group": "47847ae6.02444c",
-        "order": 14,
-        "width": 7,
-        "height": 1,
-        "passthru": false,
-        "label": "Stop",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "1",
-        "payloadType": "num",
-        "topic": "",
-        "x": 520,
-        "y": 120,
-        "wires": [
-            [
-                "9db1a745.e4a1e8"
-            ]
-        ]
-    },
-    {
-        "id": "eb7dc749.104ee8",
-        "type": "ui_button",
-        "z": "18b8c7ac.07eee8",
-        "name": "",
-        "group": "47847ae6.02444c",
-        "order": 15,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Switch OFF",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "1",
-        "payloadType": "num",
-        "topic": "",
-        "x": 540,
-        "y": 260,
-        "wires": [
-            [
-                "9db1a745.e4a1e8",
-                "e8736c8e.4bf1b"
-            ]
-        ]
-    },
-    {
-        "id": "7ed7f97c.15ae4",
-        "type": "ui_text",
-        "z": "c080d81d.548348",
-        "group": "47847ae6.02444c",
-        "order": 6,
-        "width": 7,
-        "height": 1,
-        "name": "",
-        "label": "Distance",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1200,
-        "y": 360,
-        "wires": []
-    },
-    {
         "id": "7fd27d8a.bcbbf4",
         "type": "ui_text",
         "z": "c080d81d.548348",
@@ -2977,58 +2533,6 @@
         "x": 650,
         "y": 460,
         "wires": []
-    },
-    {
-        "id": "733b3cd.a2b6944",
-        "type": "ui_numeric",
-        "z": "18b8c7ac.07eee8",
-        "name": "",
-        "label": "Target temperature",
-        "tooltip": "",
-        "group": "47847ae6.02444c",
-        "order": 4,
-        "width": 7,
-        "height": 1,
-        "wrap": false,
-        "passthru": false,
-        "topic": "",
-        "format": "{{value}}",
-        "min": "6",
-        "max": "40",
-        "step": "1",
-        "x": 540,
-        "y": 60,
-        "wires": [
-            [
-                "49589999.04ef2"
-            ]
-        ]
-    },
-    {
-        "id": "51d9b5f6.707fb4",
-        "type": "ui_numeric",
-        "z": "18b8c7ac.07eee8",
-        "name": "",
-        "label": "DAC",
-        "tooltip": "",
-        "group": "47847ae6.02444c",
-        "order": 7,
-        "width": 7,
-        "height": 1,
-        "wrap": false,
-        "passthru": false,
-        "topic": "photon/cmd/DAC",
-        "format": "{{value}}",
-        "min": "1500",
-        "max": "3300",
-        "step": "1",
-        "x": 480,
-        "y": 620,
-        "wires": [
-            [
-                "6e474a8a.4696a4"
-            ]
-        ]
     },
     {
         "id": "16f7e6a.9134a19",
@@ -3154,11 +2658,11 @@
         "state": "e06ffb1d.7fc6a",
         "name": "chamberState",
         "triggerOnInit": true,
-        "x": 190,
-        "y": 560,
+        "x": 70,
+        "y": 360,
         "wires": [
             [
-                "4ba42455.672e5c"
+                "30274e4a.4a1ff2"
             ]
         ]
     },
@@ -3170,11 +2674,6 @@
         "property": "payload",
         "propertyType": "msg",
         "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            },
             {
                 "t": "eq",
                 "v": "2",
@@ -3193,15 +2692,13 @@
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 4,
-        "x": 370,
+        "outputs": 3,
+        "x": 250,
         "y": 560,
         "wires": [
             [
-                "c11bb4dd.84b3f"
-            ],
-            [
-                "c11bb4dd.84b3f"
+                "c11bb4dd.84b3f",
+                "eaaf566c.fd8c78"
             ],
             [
                 "9be6c47a.6a94f",
@@ -3218,12 +2715,12 @@
         "type": "set-shared-state",
         "z": "64672e75.03f4a8",
         "state": "ddc00501.5975f8",
-        "name": "relay1",
+        "name": "heaterRelay",
         "triggerOnInit": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 970,
-        "y": 480,
+        "x": 1010,
+        "y": 700,
         "wires": []
     },
     {
@@ -3231,11 +2728,11 @@
         "type": "set-shared-state",
         "z": "64672e75.03f4a8",
         "state": "b57179f0.c9eaa",
-        "name": "relay2",
+        "name": "coolerRelay",
         "triggerOnInit": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 1010,
+        "x": 1030,
         "y": 620,
         "wires": []
     },
@@ -3243,7 +2740,7 @@
         "id": "c11bb4dd.84b3f",
         "type": "change",
         "z": "64672e75.03f4a8",
-        "name": "",
+        "name": "false",
         "rules": [
             {
                 "t": "set",
@@ -3258,12 +2755,13 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 600,
-        "y": 500,
+        "x": 590,
+        "y": 600,
         "wires": [
             [
                 "6926ac7a.6a98dc",
-                "53d30698.598b"
+                "53d30698.598b",
+                "11c84310.ed2465"
             ]
         ]
     },
@@ -3286,8 +2784,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 640,
+        "x": 610,
+        "y": 720,
         "wires": [
             [
                 "6926ac7a.6a98dc"
@@ -3313,8 +2811,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 580,
+        "x": 610,
+        "y": 680,
         "wires": [
             [
                 "6926ac7a.6a98dc"
@@ -3341,10 +2839,11 @@
         "to": "",
         "reg": false,
         "x": 610,
-        "y": 700,
+        "y": 780,
         "wires": [
             [
-                "53d30698.598b"
+                "53d30698.598b",
+                "11c84310.ed2465"
             ]
         ]
     },
@@ -3367,42 +2866,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 760,
+        "x": 610,
+        "y": 840,
         "wires": [
             [
-                "53d30698.598b"
+                "53d30698.598b",
+                "11c84310.ed2465"
             ]
         ]
-    },
-    {
-        "id": "41568ff4.7b9a68",
-        "type": "set-shared-state",
-        "z": "d7e822af.c12a4",
-        "state": "e06ffb1d.7fc6a",
-        "name": "chamberState",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 800,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "f3b0e8eb.04d208",
-        "type": "debug",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1150,
-        "y": 180,
-        "wires": []
     },
     {
         "id": "68ed205b.854af",
@@ -3552,8 +3023,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 320,
+        "x": 640,
+        "y": 240,
         "wires": [
             [
                 "6e756ef9.f8e908"
@@ -3571,8 +3042,8 @@
         "syntax": "mustache",
         "template": "{\"voltage\": {{payload}} }",
         "output": "str",
-        "x": 900,
-        "y": 320,
+        "x": 940,
+        "y": 240,
         "wires": [
             [
                 "2edb92ac.0ac33e"
@@ -3584,7 +3055,7 @@
         "type": "mqtt out",
         "z": "64672e75.03f4a8",
         "name": "",
-        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/FLM/set_value",
+        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/Tfr/set_value",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -3606,7 +3077,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "{\"channel0\":{{global.state.relay1.value}},\"channel1\":{{global.state.relay2.value}}}",
+        "template": "{\"channel0\":{{global.state.heaterRelay.value}},\"channel1\":{{global.state.coolerRelay.value}}}",
         "output": "str",
         "x": 420,
         "y": 100,
@@ -3720,6 +3191,7 @@
         "payload": "1",
         "payloadType": "num",
         "topic": "",
+        "topicType": "str",
         "x": 710,
         "y": 220,
         "wires": [
@@ -4020,8 +3492,8 @@
         "fwdInMessages": true,
         "resendOnRefresh": false,
         "templateScope": "global",
-        "x": 1220,
-        "y": 400,
+        "x": 1350,
+        "y": 420,
         "wires": [
             []
         ]
@@ -4065,7 +3537,7 @@
         "name": "chamberState",
         "triggerOnInit": true,
         "x": 70,
-        "y": 200,
+        "y": 160,
         "wires": [
             [
                 "e24ffaa8.b02778",
@@ -4347,6 +3819,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 140,
         "y": 340,
         "wires": [
@@ -4373,43 +3846,12 @@
         "payload": "-1",
         "payloadType": "num",
         "topic": "",
+        "topicType": "str",
         "x": 510,
         "y": 320,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "f29a88f2.35a49",
-        "type": "ui_text",
-        "z": "c080d81d.548348",
-        "group": "47847ae6.02444c",
-        "order": 8,
-        "width": 7,
-        "height": 1,
-        "name": "",
-        "label": "Room temp",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1170,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "c5711069.fec2d",
-        "type": "ui_text",
-        "z": "c080d81d.548348",
-        "group": "47847ae6.02444c",
-        "order": 9,
-        "width": 7,
-        "height": 1,
-        "name": "",
-        "label": "Chamber temp",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1180,
-        "y": 200,
-        "wires": []
     },
     {
         "id": "c4031ed2.a5087",
@@ -4743,6 +4185,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 480,
         "y": 360,
         "wires": [
@@ -4755,7 +4198,7 @@
                 "f844bb70.32ce9"
             ],
             [
-                "41568ff4.7b9a68"
+                "60ff8f67.bab1d8"
             ]
         ]
     },
@@ -4784,68 +4227,6 @@
         "x": 1140,
         "y": 220,
         "wires": []
-    },
-    {
-        "id": "94930683.ee553",
-        "type": "ui_text",
-        "z": "18b8c7ac.07eee8",
-        "group": "47847ae6.02444c",
-        "order": 11,
-        "width": 7,
-        "height": 1,
-        "name": "Heater PID",
-        "label": "Heater PID",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 510,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "e671ba.474c7648",
-        "type": "ui_text",
-        "z": "18b8c7ac.07eee8",
-        "group": "47847ae6.02444c",
-        "order": 10,
-        "width": 7,
-        "height": 1,
-        "name": "cooler PID",
-        "label": "Cooler PID",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 480,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "295c5521.0cc2c2",
-        "type": "get-shared-state",
-        "z": "18b8c7ac.07eee8",
-        "state": "a8983602.60f12",
-        "name": "heaterPID",
-        "triggerOnInit": true,
-        "x": 230,
-        "y": 320,
-        "wires": [
-            [
-                "94930683.ee553"
-            ]
-        ]
-    },
-    {
-        "id": "d529e41e.f229d8",
-        "type": "get-shared-state",
-        "z": "18b8c7ac.07eee8",
-        "state": "89e0f9c6.9f9cf",
-        "name": "coolerPID",
-        "triggerOnInit": true,
-        "x": 230,
-        "y": 380,
-        "wires": [
-            [
-                "e671ba.474c7648"
-            ]
-        ]
     },
     {
         "id": "fc8f935e.8d532",
@@ -4925,23 +4306,6 @@
                 "ae9d4c4c.6eec8"
             ]
         ]
-    },
-    {
-        "id": "2cf94a80.364e6e",
-        "type": "debug",
-        "z": "d7e822af.c12a4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1230,
-        "y": 120,
-        "wires": []
     },
     {
         "id": "f844bb70.32ce9",
@@ -5215,96 +4579,6 @@
         ]
     },
     {
-        "id": "555de05e.e262e",
-        "type": "mqtt out",
-        "z": "c080d81d.548348",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "d8f04e64.8ea568",
-        "x": 950,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "288b13bb.aef7a4",
-        "type": "json",
-        "z": "c080d81d.548348",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 730,
-        "y": 900,
-        "wires": [
-            [
-                "555de05e.e262e"
-            ]
-        ]
-    },
-    {
-        "id": "3f50cc07.4473e4",
-        "type": "change",
-        "z": "c080d81d.548348",
-        "name": "Prepare message mqtt elastic",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "state",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "payload.chamberTemp",
-                "pt": "msg",
-                "to": "state.chamberTemp.value",
-                "tot": "global"
-            },
-            {
-                "t": "set",
-                "p": "payload.setpoint",
-                "pt": "msg",
-                "to": "state.setpoint.value",
-                "tot": "global"
-            },
-            {
-                "t": "set",
-                "p": "payload.dac",
-                "pt": "msg",
-                "to": "state.DAC.value",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 410,
-        "y": 900,
-        "wires": [
-            [
-                "288b13bb.aef7a4"
-            ]
-        ]
-    },
-    {
         "id": "bea1d27c.64ca78",
         "type": "switch",
         "z": "a9ff2c82.a800b8",
@@ -5570,24 +4844,6 @@
         ]
     },
     {
-        "id": "49a07576.81892c",
-        "type": "function",
-        "z": "d7e822af.c12a4",
-        "name": "",
-        "func": "var state = msg.state;\nvar stateTime = global.get(\"state.chamberState.timestamp\");\nvar statePrev = global.get(\"state.chamberState.prev\");\nvar room = msg.room;\nvar setpoint = msg.setpoint;\nvar temp = msg.temp;\n\nvar now = Date.now();\nvar coolerpid = {};\nvar heaterpid = {};\nvar newstate = {};\nvar timeLimit = 180000;\ncoolerpid.payload = setpoint + (setpoint -temp);\nheaterpid.payload = temp;\ncoolerpid.setpoint = setpoint ;\nheaterpid.setpoint = setpoint;\nnewstate.payload= state;\n\nif (state==2) {\n\n    if (setpoint<temp-0.5){\n        if ((statePrev != 4)||((statePrev == 4) && (now-stateTime > timeLimit))){\n            newstate.payload = 4;\n\n        }\n    }else   if (setpoint>temp+0.5){\n        \n        if ((statePrev != 3)||((statePrev == 3) && (now-stateTime > timeLimit))){\n            newstate.payload = 3;\n        }\n    }\n\n    \n   // coolerpid.enabled=false;\n//    heaterpid.enabled=false;\n} else if ((state == 4)&& (setpoint>temp+0.8)){\n       newstate.payload = 2;\n\n} else if ((state == 3)&& (setpoint<temp-0.8)){\n       newstate.payload = 2;\n\n}\nif (newstate.payload == 4){\n    coolerpid.enable=true;\n    heaterpid.enable=false;\n} else if (newstate.payload == 3){\n    coolerpid.enable=false;\n    heaterpid.enable=true;\n}else {\n    coolerpid.enable=false;\n    heaterpid.enable=false;\n}\nreturn[coolerpid,heaterpid,newstate];\n\n\n",
-        "outputs": 3,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 500,
-        "y": 800,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
         "id": "a89ee010.0f6308",
         "type": "function",
         "z": "d7e822af.c12a4",
@@ -5692,22 +4948,6 @@
         "wires": []
     },
     {
-        "id": "264e4e18.a0cfd2",
-        "type": "debug",
-        "z": "d7e822af.c12a4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1620,
-        "y": 720,
-        "wires": []
-    },
-    {
         "id": "f559e83b.9b301",
         "type": "inject",
         "z": "a9ff2c82.a800b8",
@@ -5755,19 +4995,6 @@
         "reg": false,
         "x": 600,
         "y": 140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "96779339.13a34",
-        "type": "get-shared-state",
-        "z": "64672e75.03f4a8",
-        "state": "defdd5c9.00f138",
-        "name": "setpoint",
-        "triggerOnInit": true,
-        "x": 160,
-        "y": 640,
         "wires": [
             []
         ]
@@ -7329,25 +6556,6 @@
         ]
     },
     {
-        "id": "423532b1.078e74",
-        "type": "flogger",
-        "z": "c080d81d.548348",
-        "name": "",
-        "logfile": "pi.log",
-        "inputchoice": "fullmsg",
-        "inputobject": "payload",
-        "inputobjectType": "msg",
-        "inputmoustache": "Recieved payload {{payload}} and topic {{topic}}",
-        "loglevel": "INFO",
-        "logconfig": "56f0968a.d5a078",
-        "sendpane": "",
-        "x": 470,
-        "y": 40,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "88b24715.91559",
         "type": "debug",
         "z": "c080d81d.548348",
@@ -7365,26 +6573,788 @@
         "wires": []
     },
     {
-        "id": "fc7c54ff.d426e",
-        "type": "mqtt in",
-        "z": "c080d81d.548348",
+        "id": "f490efc.656331",
+        "type": "debug",
+        "z": "f3388dca.68aa58",
         "name": "",
-        "topic": "#",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "74dcdab5.83e964",
-        "nl": false,
-        "rap": false,
-        "x": 50,
-        "y": 560,
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 200,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "5fd1a9e2.54f7a8",
+        "type": "inject",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 260,
+        "wires": [
+            [
+                "58834a63.646444"
+            ]
+        ]
+    },
+    {
+        "id": "58834a63.646444",
+        "type": "change",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heaterTemp",
+                "pt": "msg",
+                "to": "heaterTemp",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 260,
+        "wires": [
+            [
+                "eadd4313.cf26e8",
+                "85cedf17.42576"
+            ]
+        ]
+    },
+    {
+        "id": "eadd4313.cf26e8",
+        "type": "json",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 770,
+        "y": 220,
+        "wires": [
+            [
+                "c0998ef0.de7558"
+            ]
+        ]
+    },
+    {
+        "id": "c0998ef0.de7558",
+        "type": "debug",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "85cedf17.42576",
+        "type": "template",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"heaterTemp\" : {{heaterTemp}} }",
+        "output": "str",
+        "x": 600,
+        "y": 420,
+        "wires": [
+            [
+                "eadd4313.cf26e8"
+            ]
+        ]
+    },
+    {
+        "id": "ff7a26da.217098",
+        "type": "get-shared-state",
+        "z": "ef7332d8.b66878",
+        "state": "3fd19932.a4ee1e",
+        "name": "DAC",
+        "triggerOnInit": true,
+        "x": 580,
+        "y": 120,
         "wires": [
             []
         ]
     },
     {
-        "id": "5ca11d9f.ffe2f4",
+        "id": "eaab018b.6bc7b8",
+        "type": "comment",
+        "z": "6ffc7dda.e666ec",
+        "name": "",
+        "info": "Chamber state:\n- 1 sleep\n- 2 running\n\nChamber mode:\n- 1 stand by\n- 2 heating\n- 3 cooling\n\n\n\n",
+        "x": 200,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4072e287.b3809c",
+        "type": "get-shared-state",
+        "z": "144fdae.df77825",
+        "state": "7cc16dfd.c5bd2c",
+        "name": "distance",
+        "triggerOnInit": true,
+        "x": 80,
+        "y": 1180,
+        "wires": [
+            [
+                "bc953665.f828"
+            ]
+        ]
+    },
+    {
+        "id": "ff80818b.8e1bd",
+        "type": "get-shared-state",
+        "z": "144fdae.df77825",
+        "state": "6084ef9b.c26b6",
+        "name": "chamberTemp",
+        "triggerOnInit": true,
+        "x": 70,
+        "y": 1020,
+        "wires": [
+            [
+                "1a7589b1.9f759e"
+            ]
+        ]
+    },
+    {
+        "id": "8084832d.8a5a18",
+        "type": "get-shared-state",
+        "z": "144fdae.df77825",
+        "state": "4451538c.85ad4c",
+        "name": "roomTemp",
+        "triggerOnInit": true,
+        "x": 60,
+        "y": 940,
+        "wires": [
+            [
+                "a53cf57a.53b288"
+            ]
+        ]
+    },
+    {
+        "id": "bc953665.f828",
+        "type": "ui_text",
+        "z": "144fdae.df77825",
+        "group": "47847ae6.02444c",
+        "order": 6,
+        "width": 7,
+        "height": 1,
+        "name": "",
+        "label": "Distance",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 280,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "a53cf57a.53b288",
+        "type": "ui_text",
+        "z": "144fdae.df77825",
+        "group": "47847ae6.02444c",
+        "order": 8,
+        "width": 7,
+        "height": 1,
+        "name": "",
+        "label": "Room temp",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 250,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "1a7589b1.9f759e",
+        "type": "ui_text",
+        "z": "144fdae.df77825",
+        "group": "47847ae6.02444c",
+        "order": 9,
+        "width": 7,
+        "height": 1,
+        "name": "",
+        "label": "Chamber temp",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 260,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "fca9d0ba.cf6c",
         "type": "inject",
-        "z": "18b8c7ac.07eee8",
+        "z": "b75a5ea0.a8f4e8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "{\"0\":false,\"1\":false}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 120,
+        "wires": [
+            [
+                "e7000c20.4ebba8",
+                "201a51e6.c1597e",
+                "b3398290.b2dbb8"
+            ]
+        ]
+    },
+    {
+        "id": "1533ff2f.150d21",
+        "type": "set-shared-state",
+        "z": "b75a5ea0.a8f4e8",
+        "state": "ddc00501.5975f8",
+        "name": "heaterRelay",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 750,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8bd583fb.b74e88",
+        "type": "set-shared-state",
+        "z": "b75a5ea0.a8f4e8",
+        "state": "b57179f0.c9eaa",
+        "name": "coolerRelay",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 750,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "e7000c20.4ebba8",
+        "type": "mqtt out",
+        "z": "b75a5ea0.a8f4e8",
+        "name": "",
+        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_svalue",
+        "qos": "",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "74dcdab5.83e964",
+        "x": 880,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "201a51e6.c1597e",
+        "type": "mqtt out",
+        "z": "b75a5ea0.a8f4e8",
+        "name": "",
+        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/Tfr/set_svalue",
+        "qos": "",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "74dcdab5.83e964",
+        "x": 890,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "b3398290.b2dbb8",
+        "type": "mqtt out",
+        "z": "b75a5ea0.a8f4e8",
+        "name": "",
+        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/FLM/set_svalue",
+        "qos": "",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "74dcdab5.83e964",
+        "x": 900,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "569aa43c.c67bcc",
+        "type": "inject",
+        "z": "b75a5ea0.a8f4e8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 220,
+        "y": 300,
+        "wires": [
+            [
+                "1533ff2f.150d21",
+                "8bd583fb.b74e88",
+                "3a138821.9280b8",
+                "7674ec0d.8ebf2c",
+                "768b7a96.60dfe4",
+                "2f8390ec.88537"
+            ]
+        ]
+    },
+    {
+        "id": "3a138821.9280b8",
+        "type": "set-shared-state",
+        "z": "b75a5ea0.a8f4e8",
+        "state": "15fe707b.cbdd78",
+        "name": "heaterFAN",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 750,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "7674ec0d.8ebf2c",
+        "type": "set-shared-state",
+        "z": "b75a5ea0.a8f4e8",
+        "state": "c8491213.eb9958",
+        "name": "enclusoreRelay",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 760,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "768b7a96.60dfe4",
+        "type": "set-shared-state",
+        "z": "b75a5ea0.a8f4e8",
+        "state": "1dc4d413.03488c",
+        "name": "powerRelay",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 750,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "60ff8f67.bab1d8",
+        "type": "set-shared-state",
+        "z": "d7e822af.c12a4",
+        "state": "e06ffb1d.7fc6a",
+        "name": "chamberState",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 820,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "8daf2ccb.cb67f8",
+        "type": "change",
+        "z": "64672e75.03f4a8",
+        "name": "false",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 440,
+        "wires": [
+            [
+                "2e70321a.50446e",
+                "b3fd51bd.e6752",
+                "2f521b49.5af13c",
+                "fc60ef3.e26f59"
+            ]
+        ]
+    },
+    {
+        "id": "2e70321a.50446e",
+        "type": "set-shared-state",
+        "z": "64672e75.03f4a8",
+        "state": "ddc00501.5975f8",
+        "name": "heaterRelay",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 910,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "b3fd51bd.e6752",
+        "type": "set-shared-state",
+        "z": "64672e75.03f4a8",
+        "state": "b57179f0.c9eaa",
+        "name": "coolerRelay",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 910,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "2f521b49.5af13c",
+        "type": "set-shared-state",
+        "z": "64672e75.03f4a8",
+        "state": "1dc4d413.03488c",
+        "name": "powerRelay",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 910,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "eaaf566c.fd8c78",
+        "type": "change",
+        "z": "64672e75.03f4a8",
+        "name": "true",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 560,
+        "wires": [
+            [
+                "2f521b49.5af13c",
+                "89f2ecad.5b6508"
+            ]
+        ]
+    },
+    {
+        "id": "fc60ef3.e26f59",
+        "type": "set-shared-state",
+        "z": "64672e75.03f4a8",
+        "state": "15fe707b.cbdd78",
+        "name": "heaterFAN",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 910,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "808b16e9.b685a",
+        "type": "mqtt out",
+        "z": "64672e75.03f4a8",
+        "name": "",
+        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/FLM/set_value",
+        "qos": "",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "74dcdab5.83e964",
+        "x": 1330,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "533adb8d.895ab4",
+        "type": "change",
+        "z": "64672e75.03f4a8",
+        "name": "Switch off all relay",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"channel0\":false,\"channel1\":false}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 340,
+        "wires": [
+            [
+                "808b16e9.b685a",
+                "3a98081b.8ee83",
+                "296f80fa.aa9e8"
+            ]
+        ]
+    },
+    {
+        "id": "3a98081b.8ee83",
+        "type": "mqtt out",
+        "z": "64672e75.03f4a8",
+        "name": "",
+        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/Tfr/set_value",
+        "qos": "",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "74dcdab5.83e964",
+        "x": 1330,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "296f80fa.aa9e8",
+        "type": "mqtt out",
+        "z": "64672e75.03f4a8",
+        "name": "",
+        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
+        "qos": "",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "74dcdab5.83e964",
+        "x": 1330,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "d7d5c8f9.1395e",
+        "type": "mqtt out",
+        "z": "64672e75.03f4a8",
+        "name": "",
+        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
+        "qos": "",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "74dcdab5.83e964",
+        "x": 1470,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "89f2ecad.5b6508",
+        "type": "change",
+        "z": "64672e75.03f4a8",
+        "name": "Switch on",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"channel0\":true,\"channel1\":true}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120,
+        "y": 560,
+        "wires": [
+            [
+                "d7d5c8f9.1395e"
+            ]
+        ]
+    },
+    {
+        "id": "11c84310.ed2465",
+        "type": "set-shared-state",
+        "z": "64672e75.03f4a8",
+        "state": "15fe707b.cbdd78",
+        "name": "heaterFAN",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 1010,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "b30f6fc2.806d3",
+        "type": "set-shared-state",
+        "z": "64672e75.03f4a8",
+        "state": "c8491213.eb9958",
+        "name": "enclosureFan",
+        "triggerOnInit": false,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 940,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "1682e316.1148ad",
+        "type": "mqtt out",
+        "z": "64672e75.03f4a8",
+        "name": "",
+        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/FLM/set_value",
+        "qos": "",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "74dcdab5.83e964",
+        "x": 1230,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "61261aef.5933f4",
+        "type": "template",
+        "z": "64672e75.03f4a8",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"channel0\": {{global.state.heaterFAN.value}},\"channel1\": {{global.state.enclosureFan.value}} }",
+        "output": "str",
+        "x": 440,
+        "y": 1060,
+        "wires": [
+            [
+                "1682e316.1148ad"
+            ]
+        ]
+    },
+    {
+        "id": "aa9eddc6.a6be48",
+        "type": "set-shared-state",
+        "z": "b75a5ea0.a8f4e8",
+        "state": "e06ffb1d.7fc6a",
+        "name": "chamberState",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 800,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "2f8390ec.88537",
+        "type": "change",
+        "z": "b75a5ea0.a8f4e8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 720,
+        "wires": [
+            [
+                "aa9eddc6.a6be48"
+            ]
+        ]
+    },
+    {
+        "id": "22c4d0a6.6f8b8",
+        "type": "inject",
+        "z": "b75a5ea0.a8f4e8",
         "name": "",
         "props": [
             {
@@ -7402,18 +7372,18 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 460,
-        "y": 760,
+        "x": 190,
+        "y": 860,
         "wires": [
             [
-                "7c494fd1.cb7028"
+                "d84d5265.21f99"
             ]
         ]
     },
     {
-        "id": "7c494fd1.cb7028",
+        "id": "d84d5265.21f99",
         "type": "exec",
-        "z": "18b8c7ac.07eee8",
+        "z": "b75a5ea0.a8f4e8",
         "command": "/home/pi/bread-tinkerforge/chromium.sh",
         "addpay": "",
         "append": "",
@@ -7421,8 +7391,8 @@
         "timer": "",
         "oldrc": false,
         "name": "",
-        "x": 810,
-        "y": 760,
+        "x": 540,
+        "y": 860,
         "wires": [
             [],
             [],
@@ -7430,53 +7400,166 @@
         ]
     },
     {
-        "id": "4685ba7b.864154",
-        "type": "mqtt in",
-        "z": "18b8c7ac.07eee8",
+        "id": "30274e4a.4a1ff2",
+        "type": "switch",
+        "z": "64672e75.03f4a8",
         "name": "",
-        "topic": "#",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "74dcdab5.83e964",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "x": 780,
-        "y": 340,
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 440,
         "wires": [
-            []
+            [
+                "533adb8d.895ab4",
+                "8daf2ccb.cb67f8"
+            ],
+            [
+                "4ba42455.672e5c",
+                "eaaf566c.fd8c78"
+            ]
         ]
     },
     {
-        "id": "ae09dc27.4624e",
-        "type": "debug",
-        "z": "18b8c7ac.07eee8",
+        "id": "901db70.4989248",
+        "type": "switch",
+        "z": "64672e75.03f4a8",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1040,
-        "y": 340,
-        "wires": []
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "40",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 390,
+        "y": 960,
+        "wires": [
+            [
+                "8b8bfccc.add978"
+            ],
+            [
+                "bf21ef62.479398"
+            ]
+        ]
     },
     {
-        "id": "f490efc.656331",
-        "type": "debug",
-        "z": "f3388dca.68aa58",
+        "id": "8b8bfccc.add978",
+        "type": "change",
+        "z": "64672e75.03f4a8",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 200,
-        "y": 540,
-        "wires": []
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 920,
+        "wires": [
+            [
+                "b30f6fc2.806d3"
+            ]
+        ]
+    },
+    {
+        "id": "bf21ef62.479398",
+        "type": "change",
+        "z": "64672e75.03f4a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 980,
+        "wires": [
+            [
+                "b30f6fc2.806d3"
+            ]
+        ]
+    },
+    {
+        "id": "5fd117cc.3fbf08",
+        "type": "get-shared-state",
+        "z": "64672e75.03f4a8",
+        "state": "7bda2608.497328",
+        "name": "heaterTemp",
+        "triggerOnInit": true,
+        "x": 150,
+        "y": 900,
+        "wires": [
+            [
+                "901db70.4989248"
+            ]
+        ]
+    },
+    {
+        "id": "fb90a963.2b90c8",
+        "type": "get-shared-state",
+        "z": "64672e75.03f4a8",
+        "state": "c8491213.eb9958",
+        "name": "enclosureFan",
+        "triggerOnInit": true,
+        "x": 150,
+        "y": 1020,
+        "wires": [
+            [
+                "61261aef.5933f4"
+            ]
+        ]
+    },
+    {
+        "id": "f06cda9c.e76ce",
+        "type": "get-shared-state",
+        "z": "64672e75.03f4a8",
+        "state": "15fe707b.cbdd78",
+        "name": "heaterFAN",
+        "triggerOnInit": true,
+        "x": 140,
+        "y": 1080,
+        "wires": [
+            [
+                "61261aef.5933f4"
+            ]
+        ]
     }
 ]
