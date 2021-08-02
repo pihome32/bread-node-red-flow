@@ -190,23 +190,26 @@
         "name": "",
         "broker": "http://10.70.1.95",
         "port": "1883",
-        "clientid": "",
+        "clientid": "bread",
         "usetls": false,
         "compatmode": false,
         "protocolVersion": "4",
         "keepalive": "60",
         "cleansession": true,
-        "birthTopic": "",
+        "birthTopic": "ha/bread_chamber/available",
         "birthQos": "0",
-        "birthPayload": "",
+        "birthRetain": "true",
+        "birthPayload": "online",
         "birthMsg": {},
-        "closeTopic": "",
+        "closeTopic": "ha/bread_chamber/available",
         "closeQos": "0",
-        "closePayload": "",
+        "closeRetain": "true",
+        "closePayload": "offline",
         "closeMsg": {},
-        "willTopic": "",
+        "willTopic": "ha/bread_chamber/available",
         "willQos": "0",
-        "willPayload": "",
+        "willRetain": "true",
+        "willPayload": "offline",
         "willMsg": {},
         "sessionExpiry": ""
     },
@@ -4645,113 +4648,6 @@
         "wires": []
     },
     {
-        "id": "5fd1a9e2.54f7a8",
-        "type": "inject",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 260,
-        "y": 260,
-        "wires": [
-            [
-                "58834a63.646444"
-            ]
-        ]
-    },
-    {
-        "id": "58834a63.646444",
-        "type": "change",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "heaterTemp",
-                "pt": "msg",
-                "to": "heaterTemp",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 480,
-        "y": 260,
-        "wires": [
-            [
-                "eadd4313.cf26e8",
-                "85cedf17.42576"
-            ]
-        ]
-    },
-    {
-        "id": "eadd4313.cf26e8",
-        "type": "json",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "property": "payload",
-        "action": "str",
-        "pretty": false,
-        "x": 810,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c0998ef0.de7558",
-        "type": "debug",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1150,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "85cedf17.42576",
-        "type": "template",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{\"heaterTemp\" : {{heaterTemp}} }",
-        "output": "str",
-        "x": 600,
-        "y": 420,
-        "wires": [
-            [
-                "eadd4313.cf26e8"
-            ]
-        ]
-    },
-    {
         "id": "ff7a26da.217098",
         "type": "get-shared-state",
         "z": "ef7332d8.b66878",
@@ -5530,7 +5426,7 @@
         "type": "mqtt out",
         "z": "ef7332d8.b66878",
         "name": "",
-        "topic": "ha/sensor/bread/dac/status",
+        "topic": "ha/sensor/bread/dac/state",
         "qos": "",
         "retain": "true",
         "respTopic": "",
@@ -5542,26 +5438,6 @@
         "x": 660,
         "y": 500,
         "wires": []
-    },
-    {
-        "id": "192433c1.17218c",
-        "type": "mqtt in",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "topic": "#",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "683f7eec.5c62c",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "x": 970,
-        "y": 240,
-        "wires": [
-            [
-                "c0998ef0.de7558"
-            ]
-        ]
     },
     {
         "id": "cefbec1d.ce5ae",
@@ -5583,7 +5459,7 @@
         "type": "mqtt out",
         "z": "ef7332d8.b66878",
         "name": "",
-        "topic": "ha/sensor/bread/chamberTemp/status",
+        "topic": "ha/sensor/bread/chamberTemp/state",
         "qos": "",
         "retain": "true",
         "respTopic": "",
@@ -5616,7 +5492,7 @@
         "type": "mqtt out",
         "z": "ef7332d8.b66878",
         "name": "",
-        "topic": "ha/sensor/bread/setpoint/status",
+        "topic": "ha/sensor/bread/setpoint/state",
         "qos": "",
         "retain": "true",
         "respTopic": "",
@@ -5649,7 +5525,7 @@
         "type": "mqtt out",
         "z": "ef7332d8.b66878",
         "name": "",
-        "topic": "ha/binary_sensor/bread/heaterFan/status",
+        "topic": "ha/binary_sensor/bread/heaterFan/state",
         "qos": "",
         "retain": "true",
         "respTopic": "",
@@ -5669,11 +5545,12 @@
         "state": "e06ffb1d.7fc6a",
         "name": "chamberState",
         "triggerOnInit": true,
-        "x": 270,
-        "y": 840,
+        "x": 110,
+        "y": 820,
         "wires": [
             [
-                "cc23b78a.2a04d"
+                "cc23b78a.2a04d",
+                "4aa17358.f54e8c"
             ]
         ]
     },
@@ -5682,7 +5559,7 @@
         "type": "mqtt out",
         "z": "ef7332d8.b66878",
         "name": "",
-        "topic": "ha/sensor/bread/chamberState/status",
+        "topic": "ha/sensor/bread/chamberState/state",
         "qos": "",
         "retain": "true",
         "respTopic": "",
@@ -5702,20 +5579,204 @@
         "state": "4451538c.85ad4c",
         "name": "roomTemp",
         "triggerOnInit": true,
-        "x": 240,
+        "x": 100,
         "y": 900,
         "wires": [
             [
-                "75530f43.63682"
+                "c76a1737.88a5a"
             ]
         ]
     },
     {
-        "id": "75530f43.63682",
+        "id": "9753d34d.f8d1",
+        "type": "mqtt in",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "topic": "ha/switch/bread_chamber/set",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "683f7eec.5c62c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 720,
+        "y": 1040,
+        "wires": [
+            [
+                "707d3dc5.40c064"
+            ]
+        ]
+    },
+    {
+        "id": "7cb7ef29.57e3a8",
+        "type": "set-shared-state",
+        "z": "ef7332d8.b66878",
+        "state": "e06ffb1d.7fc6a",
+        "name": "chamberState",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 1380,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "707d3dc5.40c064",
+        "type": "switch",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 910,
+        "y": 1000,
+        "wires": [
+            [
+                "b5651157.7de8d8"
+            ],
+            [
+                "c97dbc73.043068"
+            ]
+        ]
+    },
+    {
+        "id": "b5651157.7de8d8",
+        "type": "change",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "2",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1090,
+        "y": 940,
+        "wires": [
+            [
+                "7cb7ef29.57e3a8"
+            ]
+        ]
+    },
+    {
+        "id": "c97dbc73.043068",
+        "type": "change",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1020,
+        "wires": [
+            [
+                "7cb7ef29.57e3a8"
+            ]
+        ]
+    },
+    {
+        "id": "fdd911b8.bba56",
+        "type": "mqtt in",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "topic": "ha/bread_chamber/setTemperature",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "683f7eec.5c62c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 980,
+        "y": 580,
+        "wires": [
+            [
+                "5296dfbf.dad038"
+            ]
+        ]
+    },
+    {
+        "id": "5296dfbf.dad038",
+        "type": "set-shared-state",
+        "z": "ef7332d8.b66878",
+        "state": "defdd5c9.00f138",
+        "name": "setpoint",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 1260,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "4aa17358.f54e8c",
+        "type": "switch",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 950,
+        "y": 780,
+        "wires": [
+            [
+                "65b7fb33.7415f4"
+            ],
+            [
+                "52abb836.60937"
+            ]
+        ]
+    },
+    {
+        "id": "70dff909.28498",
         "type": "mqtt out",
         "z": "ef7332d8.b66878",
         "name": "",
-        "topic": "ha/sensor/bread/roomTemperature/status",
+        "topic": "ha/switch/bread_chamber/state",
         "qos": "",
         "retain": "true",
         "respTopic": "",
@@ -5724,94 +5785,237 @@
         "correl": "",
         "expiry": "",
         "broker": "683f7eec.5c62c",
-        "x": 650,
+        "x": 1490,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "52abb836.60937",
+        "type": "change",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ON",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1170,
+        "y": 840,
+        "wires": [
+            [
+                "70dff909.28498"
+            ]
+        ]
+    },
+    {
+        "id": "65b7fb33.7415f4",
+        "type": "change",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1170,
+        "y": 760,
+        "wires": [
+            [
+                "70dff909.28498"
+            ]
+        ]
+    },
+    {
+        "id": "9abee798.631bf",
+        "type": "inject",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "online",
+        "payloadType": "str",
+        "x": 1000,
+        "y": 420,
+        "wires": [
+            [
+                "ec405c4.2b6eda"
+            ]
+        ]
+    },
+    {
+        "id": "ec405c4.2b6eda",
+        "type": "mqtt out",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "topic": "ha/bread_chamber/available",
+        "qos": "",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "683f7eec.5c62c",
+        "x": 1240,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "ca6d32aa.45511",
+        "type": "get-shared-state",
+        "z": "ef7332d8.b66878",
+        "state": "7bda2608.497328",
+        "name": "heaterTemp",
+        "triggerOnInit": true,
+        "x": 90,
+        "y": 1000,
+        "wires": [
+            [
+                "1822b970.0eb187"
+            ]
+        ]
+    },
+    {
+        "id": "1822b970.0eb187",
+        "type": "change",
+        "z": "ef7332d8.b66878",
+        "name": "ha/sensor/bread/heaterTemperature/state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "ha/sensor/bread/heaterTemperature/state",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 1000,
+        "wires": [
+            [
+                "8ecc7c52.e4f81"
+            ]
+        ]
+    },
+    {
+        "id": "8ecc7c52.e4f81",
+        "type": "mqtt out",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "683f7eec.5c62c",
+        "x": 670,
         "y": 900,
         "wires": []
     },
     {
-        "id": "9f280298.662a",
-        "type": "inject",
+        "id": "c76a1737.88a5a",
+        "type": "change",
         "z": "ef7332d8.b66878",
-        "name": "",
-        "props": [
+        "name": "ha/sensor/bread/roomTemperature/state",
+        "rules": [
             {
-                "p": "payload"
-            },
-            {
+                "t": "set",
                 "p": "topic",
-                "vt": "str"
+                "pt": "msg",
+                "to": "ha/sensor/bread/roomTemperature/state",
+                "tot": "str"
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "true",
-        "payloadType": "str",
-        "x": 220,
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 900,
+        "wires": [
+            [
+                "8ecc7c52.e4f81"
+            ]
+        ]
+    },
+    {
+        "id": "98dc8b59.dcabb8",
+        "type": "get-shared-state",
+        "z": "ef7332d8.b66878",
+        "state": "c8491213.eb9958",
+        "name": "enclosureFan",
+        "triggerOnInit": true,
+        "x": 90,
         "y": 1080,
         "wires": [
             [
-                "3cd3219.76c63de"
+                "5d589b8a.b94a54"
             ]
         ]
     },
     {
-        "id": "1d2e123e.de1c86",
-        "type": "inject",
+        "id": "5d589b8a.b94a54",
+        "type": "change",
         "z": "ef7332d8.b66878",
-        "name": "",
-        "props": [
+        "name": "ha/binary_sensor/bread/enclosureFan/state",
+        "rules": [
             {
-                "p": "payload"
-            },
-            {
+                "t": "set",
                 "p": "topic",
-                "vt": "str"
+                "pt": "msg",
+                "to": "ha/binary_sensor/bread/enclosureFan/state",
+                "tot": "str"
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"state\":\"true\"}",
-        "payloadType": "json",
-        "x": 250,
-        "y": 1120,
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 1080,
         "wires": [
             [
-                "3cd3219.76c63de"
-            ]
-        ]
-    },
-    {
-        "id": "fa1021c.08d3fe",
-        "type": "inject",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"state\":\"false\"}",
-        "payloadType": "str",
-        "x": 280,
-        "y": 1160,
-        "wires": [
-            [
-                "3cd3219.76c63de"
+                "8ecc7c52.e4f81"
             ]
         ]
     }
