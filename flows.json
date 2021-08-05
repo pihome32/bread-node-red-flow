@@ -31,7 +31,7 @@
         "id": "fcbfcd1c.3389b8",
         "type": "tab",
         "label": "Timer",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -253,7 +253,7 @@
         "type": "shared-state",
         "name": "enclosureFan",
         "lbl": "",
-        "tags": "",
+        "tags": "ha/binary_sensor/bread/enclosureFan/state",
         "historyCount": "2",
         "dataType": "bool",
         "boolType": "bool",
@@ -317,7 +317,7 @@
         "type": "shared-state",
         "name": "chamberState",
         "lbl": "",
-        "tags": "",
+        "tags": "ha/sensor/bread/chamberState/state",
         "historyCount": "3",
         "dataType": "num",
         "boolType": "bool",
@@ -349,7 +349,7 @@
         "type": "shared-state",
         "name": "roomTemp",
         "lbl": "",
-        "tags": "",
+        "tags": "ha/sensor/bread/roomTemperature/state",
         "historyCount": "2",
         "dataType": "num",
         "boolType": "bool",
@@ -365,7 +365,7 @@
         "type": "shared-state",
         "name": "setpoint",
         "lbl": "",
-        "tags": "",
+        "tags": "ha/sensor/bread/setpoint/state",
         "historyCount": "2",
         "dataType": "num",
         "boolType": "bool",
@@ -381,7 +381,7 @@
         "type": "shared-state",
         "name": "chamberTemp",
         "lbl": "",
-        "tags": "",
+        "tags": "ha/sensor/bread/chamberTemp/state",
         "historyCount": "2",
         "dataType": "num",
         "boolType": "bool",
@@ -397,7 +397,7 @@
         "type": "shared-state",
         "name": "heaterFAN",
         "lbl": "",
-        "tags": "",
+        "tags": "ha/binary_sensor/bread/heaterFan/state",
         "historyCount": "2",
         "dataType": "bool",
         "boolType": "bool",
@@ -445,7 +445,7 @@
         "type": "shared-state",
         "name": "heaterTemp",
         "lbl": "",
-        "tags": "",
+        "tags": "ha/sensor/bread/heaterTemperature/state",
         "historyCount": "2",
         "dataType": "num",
         "boolType": "bool",
@@ -461,13 +461,13 @@
         "type": "shared-state",
         "name": "DAC",
         "lbl": "",
-        "tags": "",
+        "tags": "ha/sensor/bread/DAC/state",
         "historyCount": "2",
         "dataType": "num",
         "boolType": "bool",
         "boolStrTrue": "",
         "boolStrFalse": "",
-        "precision": "",
+        "precision": "0",
         "numMin": "",
         "numMax": "",
         "unit": ""
@@ -1161,6 +1161,22 @@
         "width": 6
     },
     {
+        "id": "f6f305728d7ada59",
+        "type": "shared-state",
+        "name": "chipTemperature",
+        "lbl": "",
+        "tags": "ha/sensor/bread/chipTemperature/state",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": ""
+    },
+    {
         "id": "6a49d89f.1a17e8",
         "type": "mqtt in",
         "z": "c080d81d.548348",
@@ -1589,8 +1605,8 @@
         "correl": "",
         "expiry": "",
         "broker": "74dcdab5.83e964",
-        "x": 1150,
-        "y": 220,
+        "x": 1570,
+        "y": 200,
         "wires": []
     },
     {
@@ -1676,7 +1692,6 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
         "payloadType": "date",
         "x": 120,
         "y": 680,
@@ -1690,19 +1705,6 @@
         ]
     },
     {
-        "id": "a78c11d9.9d329",
-        "type": "mqtt out",
-        "z": "c080d81d.548348",
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "broker": "74dcdab5.83e964",
-        "x": 930,
-        "y": 660,
-        "wires": []
-    },
-    {
         "id": "3bf4ab79.fee764",
         "type": "json",
         "z": "c080d81d.548348",
@@ -1713,9 +1715,7 @@
         "x": 750,
         "y": 660,
         "wires": [
-            [
-                "a78c11d9.9d329"
-            ]
+            []
         ]
     },
     {
@@ -2281,8 +2281,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 250,
-        "y": 560,
+        "x": 170,
+        "y": 600,
         "wires": [
             [
                 "c11bb4dd.84b3f",
@@ -2307,8 +2307,8 @@
         "triggerOnInit": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 1010,
-        "y": 700,
+        "x": 1070,
+        "y": 760,
         "wires": []
     },
     {
@@ -2320,8 +2320,8 @@
         "triggerOnInit": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 1030,
-        "y": 620,
+        "x": 1090,
+        "y": 680,
         "wires": []
     },
     {
@@ -2343,8 +2343,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 600,
+        "x": 430,
+        "y": 580,
         "wires": [
             [
                 "6926ac7a.6a98dc",
@@ -2372,8 +2372,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
-        "y": 720,
+        "x": 450,
+        "y": 700,
         "wires": [
             [
                 "6926ac7a.6a98dc"
@@ -2399,8 +2399,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
-        "y": 680,
+        "x": 450,
+        "y": 660,
         "wires": [
             [
                 "6926ac7a.6a98dc"
@@ -2426,8 +2426,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
-        "y": 780,
+        "x": 450,
+        "y": 760,
         "wires": [
             [
                 "53d30698.598b",
@@ -2454,8 +2454,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
-        "y": 840,
+        "x": 450,
+        "y": 820,
         "wires": [
             [
                 "53d30698.598b",
@@ -2639,24 +2639,6 @@
         ]
     },
     {
-        "id": "1a69be0a.5d9cb2",
-        "type": "mqtt out",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/Tfr/set_value",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "74dcdab5.83e964",
-        "x": 900,
-        "y": 100,
-        "wires": []
-    },
-    {
         "id": "4441a7ff.ccde",
         "type": "template",
         "z": "64672e75.03f4a8",
@@ -2671,7 +2653,7 @@
         "y": 100,
         "wires": [
             [
-                "1a69be0a.5d9cb2"
+                "c56ff7f1381623b7"
             ]
         ]
     },
@@ -2683,24 +2665,20 @@
         "props": [
             {
                 "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
             }
         ],
         "repeat": "30",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
+        "once": true,
+        "onceDelay": "5",
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 160,
+        "payloadType": "str",
+        "x": 140,
         "y": 40,
         "wires": [
             [
-                "4441a7ff.ccde"
+                "4441a7ff.ccde",
+                "73375e88c23ab2dc"
             ]
         ]
     },
@@ -2735,7 +2713,6 @@
         "payload": "1",
         "payloadType": "num",
         "topic": "",
-        "topicType": "str",
         "x": 710,
         "y": 220,
         "wires": [
@@ -3343,7 +3320,6 @@
         "payload": "-1",
         "payloadType": "num",
         "topic": "",
-        "topicType": "str",
         "x": 510,
         "y": 320,
         "wires": [
@@ -4631,34 +4607,17 @@
         ]
     },
     {
-        "id": "88b24715.91559",
-        "type": "debug",
-        "z": "c080d81d.548348",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1050,
-        "y": 540,
-        "wires": []
-    },
-    {
         "id": "ff7a26da.217098",
         "type": "get-shared-state",
         "z": "ef7332d8.b66878",
         "state": "3fd19932.a4ee1e",
         "name": "DAC",
         "triggerOnInit": true,
-        "x": 270,
-        "y": 500,
+        "x": 90,
+        "y": 120,
         "wires": [
             [
-                "45348b4b.7aedec"
+                "342edbbf2f0305dc"
             ]
         ]
     },
@@ -4743,8 +4702,8 @@
         "correl": "",
         "expiry": "",
         "broker": "74dcdab5.83e964",
-        "x": 880,
-        "y": 100,
+        "x": 870,
+        "y": 60,
         "wires": []
     },
     {
@@ -4908,8 +4867,8 @@
         "triggerOnInit": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 910,
-        "y": 360,
+        "x": 970,
+        "y": 420,
         "wires": []
     },
     {
@@ -4921,8 +4880,8 @@
         "triggerOnInit": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 910,
-        "y": 420,
+        "x": 970,
+        "y": 480,
         "wires": []
     },
     {
@@ -4934,8 +4893,8 @@
         "triggerOnInit": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 910,
-        "y": 480,
+        "x": 970,
+        "y": 540,
         "wires": []
     },
     {
@@ -4957,8 +4916,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 560,
+        "x": 430,
+        "y": 540,
         "wires": [
             [
                 "2f521b49.5af13c",
@@ -4975,26 +4934,8 @@
         "triggerOnInit": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 910,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "808b16e9.b685a",
-        "type": "mqtt out",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/FLM/set_value",
-        "qos": "",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "74dcdab5.83e964",
-        "x": 1330,
-        "y": 300,
+        "x": 970,
+        "y": 600,
         "wires": []
     },
     {
@@ -5020,47 +4961,11 @@
         "y": 340,
         "wires": [
             [
-                "808b16e9.b685a",
-                "3a98081b.8ee83",
-                "296f80fa.aa9e8"
+                "e9ae73d0815d4762",
+                "e2f8990dd097f915",
+                "a891f18936a390a9"
             ]
         ]
-    },
-    {
-        "id": "3a98081b.8ee83",
-        "type": "mqtt out",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/Tfr/set_value",
-        "qos": "",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "74dcdab5.83e964",
-        "x": 1330,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "296f80fa.aa9e8",
-        "type": "mqtt out",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
-        "qos": "",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "74dcdab5.83e964",
-        "x": 1330,
-        "y": 420,
-        "wires": []
     },
     {
         "id": "d7d5c8f9.1395e",
@@ -5076,7 +4981,7 @@
         "correl": "",
         "expiry": "",
         "broker": "74dcdab5.83e964",
-        "x": 1470,
+        "x": 1630,
         "y": 540,
         "wires": []
     },
@@ -5100,7 +5005,7 @@
         "to": "",
         "reg": false,
         "x": 1120,
-        "y": 560,
+        "y": 640,
         "wires": [
             [
                 "d7d5c8f9.1395e"
@@ -5116,8 +5021,8 @@
         "triggerOnInit": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 1010,
-        "y": 800,
+        "x": 1070,
+        "y": 860,
         "wires": []
     },
     {
@@ -5147,8 +5052,8 @@
         "correl": "",
         "expiry": "",
         "broker": "74dcdab5.83e964",
-        "x": 1230,
-        "y": 1020,
+        "x": 1150,
+        "y": 1040,
         "wires": []
     },
     {
@@ -5234,27 +5139,6 @@
         "x": 190,
         "y": 860,
         "wires": [
-            [
-                "d84d5265.21f99"
-            ]
-        ]
-    },
-    {
-        "id": "d84d5265.21f99",
-        "type": "exec",
-        "z": "b75a5ea0.a8f4e8",
-        "command": "/home/pi/bread-tinkerforge/chromium.sh",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "",
-        "x": 540,
-        "y": 860,
-        "wires": [
-            [],
-            [],
             []
         ]
     },
@@ -5301,18 +5185,20 @@
         "rules": [
             {
                 "t": "gt",
-                "v": "40",
+                "v": "46",
                 "vt": "num"
             },
             {
-                "t": "else"
+                "t": "lt",
+                "v": "43",
+                "vt": "num"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 390,
-        "y": 960,
+        "x": 370,
+        "y": 920,
         "wires": [
             [
                 "8b8bfccc.add978"
@@ -5422,55 +5308,19 @@
         ]
     },
     {
-        "id": "45348b4b.7aedec",
-        "type": "mqtt out",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "topic": "ha/sensor/bread/dac/state",
-        "qos": "",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "683f7eec.5c62c",
-        "x": 660,
-        "y": 500,
-        "wires": []
-    },
-    {
         "id": "cefbec1d.ce5ae",
         "type": "get-shared-state",
         "z": "ef7332d8.b66878",
         "state": "6084ef9b.c26b6",
         "name": "chamberTemp",
         "triggerOnInit": true,
-        "x": 300,
-        "y": 560,
+        "x": 120,
+        "y": 180,
         "wires": [
             [
-                "104fa329.309895"
+                "342edbbf2f0305dc"
             ]
         ]
-    },
-    {
-        "id": "104fa329.309895",
-        "type": "mqtt out",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "topic": "ha/sensor/bread/chamberTemp/state",
-        "qos": "",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "683f7eec.5c62c",
-        "x": 670,
-        "y": 560,
-        "wires": []
     },
     {
         "id": "769cbacf.be1f04",
@@ -5479,31 +5329,13 @@
         "state": "defdd5c9.00f138",
         "name": "setpoint",
         "triggerOnInit": true,
-        "x": 280,
-        "y": 640,
+        "x": 100,
+        "y": 260,
         "wires": [
             [
-                "65560d4b.8366f4"
+                "342edbbf2f0305dc"
             ]
         ]
-    },
-    {
-        "id": "65560d4b.8366f4",
-        "type": "mqtt out",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "topic": "ha/sensor/bread/setpoint/state",
-        "qos": "",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "683f7eec.5c62c",
-        "x": 650,
-        "y": 640,
-        "wires": []
     },
     {
         "id": "387ed4dd.4072c4",
@@ -5512,31 +5344,13 @@
         "state": "15fe707b.cbdd78",
         "name": "heaterFAN",
         "triggerOnInit": true,
-        "x": 280,
-        "y": 720,
+        "x": 100,
+        "y": 340,
         "wires": [
             [
-                "3cd3219.76c63de"
+                "342edbbf2f0305dc"
             ]
         ]
-    },
-    {
-        "id": "3cd3219.76c63de",
-        "type": "mqtt out",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "topic": "ha/binary_sensor/bread/heaterFan/state",
-        "qos": "",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "683f7eec.5c62c",
-        "x": 680,
-        "y": 740,
-        "wires": []
     },
     {
         "id": "5f073449.870fd4",
@@ -5545,32 +5359,14 @@
         "state": "e06ffb1d.7fc6a",
         "name": "chamberState",
         "triggerOnInit": true,
-        "x": 110,
-        "y": 820,
+        "x": 130,
+        "y": 440,
         "wires": [
             [
-                "cc23b78a.2a04d",
-                "4aa17358.f54e8c"
+                "4aa17358.f54e8c",
+                "342edbbf2f0305dc"
             ]
         ]
-    },
-    {
-        "id": "cc23b78a.2a04d",
-        "type": "mqtt out",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "topic": "ha/sensor/bread/chamberState/state",
-        "qos": "",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "683f7eec.5c62c",
-        "x": 650,
-        "y": 840,
-        "wires": []
     },
     {
         "id": "d696a30e.fd887",
@@ -5580,10 +5376,10 @@
         "name": "roomTemp",
         "triggerOnInit": true,
         "x": 100,
-        "y": 900,
+        "y": 520,
         "wires": [
             [
-                "c76a1737.88a5a"
+                "342edbbf2f0305dc"
             ]
         ]
     },
@@ -5599,8 +5395,8 @@
         "nl": false,
         "rap": true,
         "rh": 0,
-        "x": 720,
-        "y": 1040,
+        "x": 640,
+        "y": 640,
         "wires": [
             [
                 "707d3dc5.40c064"
@@ -5616,8 +5412,8 @@
         "triggerOnInit": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 1380,
-        "y": 960,
+        "x": 1400,
+        "y": 580,
         "wires": []
     },
     {
@@ -5642,8 +5438,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 910,
-        "y": 1000,
+        "x": 930,
+        "y": 620,
         "wires": [
             [
                 "b5651157.7de8d8"
@@ -5672,8 +5468,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1090,
-        "y": 940,
+        "x": 1110,
+        "y": 560,
         "wires": [
             [
                 "7cb7ef29.57e3a8"
@@ -5699,8 +5495,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1110,
-        "y": 1020,
+        "x": 1130,
+        "y": 640,
         "wires": [
             [
                 "7cb7ef29.57e3a8"
@@ -5719,8 +5515,8 @@
         "nl": false,
         "rap": true,
         "rh": 0,
-        "x": 980,
-        "y": 580,
+        "x": 1000,
+        "y": 200,
         "wires": [
             [
                 "5296dfbf.dad038"
@@ -5736,8 +5532,8 @@
         "triggerOnInit": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 1260,
-        "y": 580,
+        "x": 1280,
+        "y": 200,
         "wires": []
     },
     {
@@ -5760,8 +5556,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 950,
-        "y": 780,
+        "x": 610,
+        "y": 420,
         "wires": [
             [
                 "65b7fb33.7415f4"
@@ -5785,8 +5581,8 @@
         "correl": "",
         "expiry": "",
         "broker": "683f7eec.5c62c",
-        "x": 1490,
-        "y": 760,
+        "x": 1510,
+        "y": 380,
         "wires": []
     },
     {
@@ -5808,8 +5604,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1170,
-        "y": 840,
+        "x": 910,
+        "y": 440,
         "wires": [
             [
                 "70dff909.28498"
@@ -5835,8 +5631,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1170,
-        "y": 760,
+        "x": 910,
+        "y": 380,
         "wires": [
             [
                 "70dff909.28498"
@@ -5864,8 +5660,8 @@
         "topic": "",
         "payload": "online",
         "payloadType": "str",
-        "x": 1000,
-        "y": 420,
+        "x": 1020,
+        "y": 40,
         "wires": [
             [
                 "ec405c4.2b6eda"
@@ -5886,8 +5682,8 @@
         "correl": "",
         "expiry": "",
         "broker": "683f7eec.5c62c",
-        "x": 1240,
-        "y": 420,
+        "x": 1260,
+        "y": 40,
         "wires": []
     },
     {
@@ -5897,38 +5693,11 @@
         "state": "7bda2608.497328",
         "name": "heaterTemp",
         "triggerOnInit": true,
-        "x": 90,
-        "y": 1000,
+        "x": 110,
+        "y": 620,
         "wires": [
             [
-                "1822b970.0eb187"
-            ]
-        ]
-    },
-    {
-        "id": "1822b970.0eb187",
-        "type": "change",
-        "z": "ef7332d8.b66878",
-        "name": "ha/sensor/bread/heaterTemperature/state",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "ha/sensor/bread/heaterTemperature/state",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 340,
-        "y": 1000,
-        "wires": [
-            [
-                "8ecc7c52.e4f81"
+                "342edbbf2f0305dc"
             ]
         ]
     },
@@ -5946,36 +5715,9 @@
         "correl": "",
         "expiry": "",
         "broker": "683f7eec.5c62c",
-        "x": 670,
-        "y": 900,
+        "x": 690,
+        "y": 520,
         "wires": []
-    },
-    {
-        "id": "c76a1737.88a5a",
-        "type": "change",
-        "z": "ef7332d8.b66878",
-        "name": "ha/sensor/bread/roomTemperature/state",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "ha/sensor/bread/roomTemperature/state",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 360,
-        "y": 900,
-        "wires": [
-            [
-                "8ecc7c52.e4f81"
-            ]
-        ]
     },
     {
         "id": "98dc8b59.dcabb8",
@@ -5984,25 +5726,142 @@
         "state": "c8491213.eb9958",
         "name": "enclosureFan",
         "triggerOnInit": true,
-        "x": 90,
-        "y": 1080,
+        "x": 110,
+        "y": 700,
         "wires": [
             [
-                "5d589b8a.b94a54"
+                "342edbbf2f0305dc"
             ]
         ]
     },
     {
-        "id": "5d589b8a.b94a54",
+        "id": "7cbb42beac1ae05c",
+        "type": "mqtt in",
+        "z": "c080d81d.548348",
+        "name": "",
+        "topic": "tinkerforge/response/hat_brick/Vtg/get_chip_temperature",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "74dcdab5.83e964",
+        "nl": false,
+        "rap": false,
+        "x": 210,
+        "y": 460,
+        "wires": [
+            [
+                "18e98a47e478cccb"
+            ]
+        ]
+    },
+    {
+        "id": "6c34ef0b16d13c23",
+        "type": "set-shared-state",
+        "z": "c080d81d.548348",
+        "state": "f6f305728d7ada59",
+        "name": "chipTemperature",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 870,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "59064a69af978b9e",
+        "type": "change",
+        "z": "c080d81d.548348",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.temperature",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 440,
+        "wires": [
+            [
+                "6c34ef0b16d13c23"
+            ]
+        ]
+    },
+    {
+        "id": "18e98a47e478cccb",
+        "type": "json",
+        "z": "c080d81d.548348",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 490,
+        "y": 460,
+        "wires": [
+            [
+                "59064a69af978b9e"
+            ]
+        ]
+    },
+    {
+        "id": "eec8e5b7b1d8d185",
+        "type": "get-shared-state",
+        "z": "ef7332d8.b66878",
+        "state": "f6f305728d7ada59",
+        "name": "chipTemperature",
+        "triggerOnInit": true,
+        "x": 120,
+        "y": 780,
+        "wires": [
+            [
+                "342edbbf2f0305dc"
+            ]
+        ]
+    },
+    {
+        "id": "342edbbf2f0305dc",
         "type": "change",
         "z": "ef7332d8.b66878",
-        "name": "ha/binary_sensor/bread/enclosureFan/state",
+        "name": "",
         "rules": [
             {
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "ha/binary_sensor/bread/enclosureFan/state",
+                "to": "msg.state.config.tags",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 500,
+        "wires": [
+            [
+                "8ecc7c52.e4f81"
+            ]
+        ]
+    },
+    {
+        "id": "73375e88c23ab2dc",
+        "type": "change",
+        "z": "64672e75.03f4a8",
+        "name": "tinkerforge/request/hat_brick/Vtg/get_chip_temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "tinkerforge/request/hat_brick/Vtg/get_chip_temperature",
                 "tot": "str"
             }
         ],
@@ -6011,11 +5870,119 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 1080,
+        "x": 1180,
+        "y": 60,
         "wires": [
             [
-                "8ecc7c52.e4f81"
+                "2edb92ac.0ac33e"
+            ]
+        ]
+    },
+    {
+        "id": "c56ff7f1381623b7",
+        "type": "change",
+        "z": "64672e75.03f4a8",
+        "name": "tinkerforge/request/industrial_dual_relay_bricklet/Tfr/set_value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "tinkerforge/request/industrial_dual_relay_bricklet/Tfr/set_value",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 120,
+        "wires": [
+            [
+                "2edb92ac.0ac33e"
+            ]
+        ]
+    },
+    {
+        "id": "e9ae73d0815d4762",
+        "type": "change",
+        "z": "64672e75.03f4a8",
+        "name": "tinkerforge/request/industrial_dual_relay_bricklet/FLM/set_value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "tinkerforge/request/industrial_dual_relay_bricklet/FLM/set_value",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1180,
+        "y": 280,
+        "wires": [
+            [
+                "2edb92ac.0ac33e"
+            ]
+        ]
+    },
+    {
+        "id": "e2f8990dd097f915",
+        "type": "change",
+        "z": "64672e75.03f4a8",
+        "name": "tinkerforge/request/industrial_dual_relay_bricklet/Tfr/set_value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "tinkerforge/request/industrial_dual_relay_bricklet/Tfr/set_value",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1170,
+        "y": 320,
+        "wires": [
+            [
+                "2edb92ac.0ac33e"
+            ]
+        ]
+    },
+    {
+        "id": "a891f18936a390a9",
+        "type": "change",
+        "z": "64672e75.03f4a8",
+        "name": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1230,
+        "y": 360,
+        "wires": [
+            [
+                "2edb92ac.0ac33e"
             ]
         ]
     }
