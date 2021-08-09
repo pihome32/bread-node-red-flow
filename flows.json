@@ -56,6 +56,13 @@
         "info": ""
     },
     {
+        "id": "36270e4a731322c2",
+        "type": "tab",
+        "label": "Watchdog",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "a2c4834c.e7fa58",
         "type": "subflow",
         "name": "Process Simulation",
@@ -355,7 +362,7 @@
         "boolType": "bool",
         "boolStrTrue": "",
         "boolStrFalse": "",
-        "precision": "",
+        "precision": "1",
         "numMin": "",
         "numMax": "",
         "unit": "C"
@@ -373,7 +380,7 @@
         "boolStrFalse": "",
         "precision": "1",
         "numMin": "6",
-        "numMax": "40",
+        "numMax": "51",
         "unit": "C"
     },
     {
@@ -387,7 +394,7 @@
         "boolType": "bool",
         "boolStrTrue": "",
         "boolStrFalse": "",
-        "precision": "",
+        "precision": "1",
         "numMin": "",
         "numMax": "",
         "unit": "C"
@@ -451,7 +458,7 @@
         "boolType": "bool",
         "boolStrTrue": "",
         "boolStrFalse": "",
-        "precision": "",
+        "precision": "1",
         "numMin": "",
         "numMax": "",
         "unit": "C"
@@ -1171,7 +1178,7 @@
         "boolType": "bool",
         "boolStrTrue": "",
         "boolStrFalse": "",
-        "precision": "",
+        "precision": "1",
         "numMin": "",
         "numMax": "",
         "unit": ""
@@ -2286,15 +2293,18 @@
         "wires": [
             [
                 "c11bb4dd.84b3f",
-                "eaaf566c.fd8c78"
+                "eaaf566c.fd8c78",
+                "91b18f3ab3761967"
             ],
             [
                 "9be6c47a.6a94f",
-                "cd0ceb27.ad777"
+                "cd0ceb27.ad777",
+                "89eaf676b0f72dfc"
             ],
             [
                 "3be3c18b.3156ee",
-                "f6371b8f.ce0d1"
+                "f6371b8f.ce0d1",
+                "91b18f3ab3761967"
             ]
         ]
     },
@@ -4658,7 +4668,7 @@
             [
                 "e7000c20.4ebba8",
                 "201a51e6.c1597e",
-                "b3398290.b2dbb8"
+                "d9df279c1cba1a50"
             ]
         ]
     },
@@ -4722,24 +4732,6 @@
         "broker": "74dcdab5.83e964",
         "x": 890,
         "y": 140,
-        "wires": []
-    },
-    {
-        "id": "b3398290.b2dbb8",
-        "type": "mqtt out",
-        "z": "b75a5ea0.a8f4e8",
-        "name": "",
-        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/FLM/set_svalue",
-        "qos": "",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "74dcdab5.83e964",
-        "x": 900,
-        "y": 180,
         "wires": []
     },
     {
@@ -4920,8 +4912,7 @@
         "y": 540,
         "wires": [
             [
-                "2f521b49.5af13c",
-                "89f2ecad.5b6508"
+                "2f521b49.5af13c"
             ]
         ]
     },
@@ -4961,54 +4952,8 @@
         "y": 340,
         "wires": [
             [
-                "e9ae73d0815d4762",
                 "e2f8990dd097f915",
                 "a891f18936a390a9"
-            ]
-        ]
-    },
-    {
-        "id": "d7d5c8f9.1395e",
-        "type": "mqtt out",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
-        "qos": "",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "74dcdab5.83e964",
-        "x": 1630,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "89f2ecad.5b6508",
-        "type": "change",
-        "z": "64672e75.03f4a8",
-        "name": "Switch on",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"channel0\":true,\"channel1\":true}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1120,
-        "y": 640,
-        "wires": [
-            [
-                "d7d5c8f9.1395e"
             ]
         ]
     },
@@ -5024,56 +4969,6 @@
         "x": 1070,
         "y": 860,
         "wires": []
-    },
-    {
-        "id": "b30f6fc2.806d3",
-        "type": "set-shared-state",
-        "z": "64672e75.03f4a8",
-        "state": "c8491213.eb9958",
-        "name": "enclosureFan",
-        "triggerOnInit": false,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 940,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "1682e316.1148ad",
-        "type": "mqtt out",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/FLM/set_value",
-        "qos": "",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "74dcdab5.83e964",
-        "x": 1150,
-        "y": 1040,
-        "wires": []
-    },
-    {
-        "id": "61261aef.5933f4",
-        "type": "template",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{\"channel0\": {{global.state.heaterFAN.value}},\"channel1\": {{global.state.enclosureFan.value}} }",
-        "output": "str",
-        "x": 440,
-        "y": 1060,
-        "wires": [
-            [
-                "1682e316.1148ad"
-            ]
-        ]
     },
     {
         "id": "aa9eddc6.a6be48",
@@ -5116,33 +5011,6 @@
         ]
     },
     {
-        "id": "22c4d0a6.6f8b8",
-        "type": "inject",
-        "z": "b75a5ea0.a8f4e8",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 190,
-        "y": 860,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "30274e4a.4a1ff2",
         "type": "switch",
         "z": "64672e75.03f4a8",
@@ -5172,138 +5040,6 @@
             [
                 "4ba42455.672e5c",
                 "eaaf566c.fd8c78"
-            ]
-        ]
-    },
-    {
-        "id": "901db70.4989248",
-        "type": "switch",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gt",
-                "v": "46",
-                "vt": "num"
-            },
-            {
-                "t": "lt",
-                "v": "43",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 370,
-        "y": 920,
-        "wires": [
-            [
-                "8b8bfccc.add978"
-            ],
-            [
-                "bf21ef62.479398"
-            ]
-        ]
-    },
-    {
-        "id": "8b8bfccc.add978",
-        "type": "change",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 630,
-        "y": 920,
-        "wires": [
-            [
-                "b30f6fc2.806d3"
-            ]
-        ]
-    },
-    {
-        "id": "bf21ef62.479398",
-        "type": "change",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 630,
-        "y": 980,
-        "wires": [
-            [
-                "b30f6fc2.806d3"
-            ]
-        ]
-    },
-    {
-        "id": "5fd117cc.3fbf08",
-        "type": "get-shared-state",
-        "z": "64672e75.03f4a8",
-        "state": "7bda2608.497328",
-        "name": "heaterTemp",
-        "triggerOnInit": true,
-        "x": 150,
-        "y": 900,
-        "wires": [
-            [
-                "901db70.4989248"
-            ]
-        ]
-    },
-    {
-        "id": "fb90a963.2b90c8",
-        "type": "get-shared-state",
-        "z": "64672e75.03f4a8",
-        "state": "c8491213.eb9958",
-        "name": "enclosureFan",
-        "triggerOnInit": true,
-        "x": 150,
-        "y": 1020,
-        "wires": [
-            [
-                "61261aef.5933f4"
-            ]
-        ]
-    },
-    {
-        "id": "f06cda9c.e76ce",
-        "type": "get-shared-state",
-        "z": "64672e75.03f4a8",
-        "state": "15fe707b.cbdd78",
-        "name": "heaterFAN",
-        "triggerOnInit": true,
-        "x": 140,
-        "y": 1080,
-        "wires": [
-            [
-                "61261aef.5933f4"
             ]
         ]
     },
@@ -5363,8 +5099,8 @@
         "y": 440,
         "wires": [
             [
-                "4aa17358.f54e8c",
-                "342edbbf2f0305dc"
+                "342edbbf2f0305dc",
+                "b55010a07f38d401"
             ]
         ]
     },
@@ -5388,7 +5124,7 @@
         "type": "mqtt in",
         "z": "ef7332d8.b66878",
         "name": "",
-        "topic": "ha/switch/bread_chamber/set",
+        "topic": "ha/bread_chamber/mode/set",
         "qos": "2",
         "datatype": "auto",
         "broker": "683f7eec.5c62c",
@@ -5396,7 +5132,7 @@
         "rap": true,
         "rh": 0,
         "x": 640,
-        "y": 640,
+        "y": 840,
         "wires": [
             [
                 "707d3dc5.40c064"
@@ -5413,7 +5149,7 @@
         "provideOutput": false,
         "outputs": 0,
         "x": 1400,
-        "y": 580,
+        "y": 820,
         "wires": []
     },
     {
@@ -5426,12 +5162,12 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "ON",
+                "v": "auto",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "OFF",
+                "v": "off",
                 "vt": "str"
             }
         ],
@@ -5439,7 +5175,7 @@
         "repair": false,
         "outputs": 2,
         "x": 930,
-        "y": 620,
+        "y": 820,
         "wires": [
             [
                 "b5651157.7de8d8"
@@ -5468,8 +5204,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1110,
-        "y": 560,
+        "x": 1170,
+        "y": 740,
         "wires": [
             [
                 "7cb7ef29.57e3a8"
@@ -5496,7 +5232,7 @@
         "to": "",
         "reg": false,
         "x": 1130,
-        "y": 640,
+        "y": 840,
         "wires": [
             [
                 "7cb7ef29.57e3a8"
@@ -5550,20 +5286,42 @@
                 "vt": "num"
             },
             {
-                "t": "else"
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 2,
-        "x": 610,
-        "y": 420,
+        "outputs": 4,
+        "x": 630,
+        "y": 400,
         "wires": [
             [
-                "65b7fb33.7415f4"
+                "65b7fb33.7415f4",
+                "97ed996ad44ad02c"
             ],
             [
-                "52abb836.60937"
+                "52abb836.60937",
+                "d2a76748d119082f"
+            ],
+            [
+                "19d20364a52bf695",
+                "d2a76748d119082f"
+            ],
+            [
+                "7bc10efd4607420e",
+                "d2a76748d119082f"
             ]
         ]
     },
@@ -5572,7 +5330,7 @@
         "type": "mqtt out",
         "z": "ef7332d8.b66878",
         "name": "",
-        "topic": "ha/switch/bread_chamber/state",
+        "topic": "",
         "qos": "",
         "retain": "true",
         "respTopic": "",
@@ -5581,7 +5339,7 @@
         "correl": "",
         "expiry": "",
         "broker": "683f7eec.5c62c",
-        "x": 1510,
+        "x": 1430,
         "y": 380,
         "wires": []
     },
@@ -5595,7 +5353,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "ON",
+                "to": "low",
                 "tot": "str"
             }
         ],
@@ -5622,7 +5380,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "OFF",
+                "to": "auto",
                 "tot": "str"
             }
         ],
@@ -5657,34 +5415,16 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
+        "topic": "ha/bread_chamber/available",
         "payload": "online",
         "payloadType": "str",
-        "x": 1020,
+        "x": 920,
         "y": 40,
         "wires": [
             [
-                "ec405c4.2b6eda"
+                "70dff909.28498"
             ]
         ]
-    },
-    {
-        "id": "ec405c4.2b6eda",
-        "type": "mqtt out",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "topic": "ha/bread_chamber/available",
-        "qos": "",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "683f7eec.5c62c",
-        "x": 1260,
-        "y": 40,
-        "wires": []
     },
     {
         "id": "ca6d32aa.45511",
@@ -5695,39 +5435,6 @@
         "triggerOnInit": true,
         "x": 110,
         "y": 620,
-        "wires": [
-            [
-                "342edbbf2f0305dc"
-            ]
-        ]
-    },
-    {
-        "id": "8ecc7c52.e4f81",
-        "type": "mqtt out",
-        "z": "ef7332d8.b66878",
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "683f7eec.5c62c",
-        "x": 690,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "98dc8b59.dcabb8",
-        "type": "get-shared-state",
-        "z": "ef7332d8.b66878",
-        "state": "c8491213.eb9958",
-        "name": "enclosureFan",
-        "triggerOnInit": true,
-        "x": 110,
-        "y": 700,
         "wires": [
             [
                 "342edbbf2f0305dc"
@@ -5847,7 +5554,7 @@
         "y": 500,
         "wires": [
             [
-                "8ecc7c52.e4f81"
+                "70dff909.28498"
             ]
         ]
     },
@@ -5906,33 +5613,6 @@
         ]
     },
     {
-        "id": "e9ae73d0815d4762",
-        "type": "change",
-        "z": "64672e75.03f4a8",
-        "name": "tinkerforge/request/industrial_dual_relay_bricklet/FLM/set_value",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "tinkerforge/request/industrial_dual_relay_bricklet/FLM/set_value",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1180,
-        "y": 280,
-        "wires": [
-            [
-                "2edb92ac.0ac33e"
-            ]
-        ]
-    },
-    {
         "id": "e2f8990dd097f915",
         "type": "change",
         "z": "64672e75.03f4a8",
@@ -5984,6 +5664,477 @@
             [
                 "2edb92ac.0ac33e"
             ]
+        ]
+    },
+    {
+        "id": "22a2e0cbd2fed739",
+        "type": "inject",
+        "z": "36270e4a731322c2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "20",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "a521eb76ed174b2c"
+            ]
+        ]
+    },
+    {
+        "id": "4b3e7a4dac59ddcf",
+        "type": "mqtt out",
+        "z": "36270e4a731322c2",
+        "name": "",
+        "topic": "request/hat_brick/Vtg/get_sleep_mode",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "74dcdab5.83e964",
+        "x": 900,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a521eb76ed174b2c",
+        "type": "template",
+        "z": "36270e4a731322c2",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"power_off_delay\":60,\n\"power_off_duration\":30,\n\"raspberry_pi_off\":true,\n\"bricklets_off\":true,\n\"enable_sleep_indicator\":true}",
+        "output": "json",
+        "x": 520,
+        "y": 220,
+        "wires": [
+            [
+                "4b3e7a4dac59ddcf"
+            ]
+        ]
+    },
+    {
+        "id": "976a0b6cfb92ac11",
+        "type": "inject",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ha/bread_chamber/action",
+        "payload": "off",
+        "payloadType": "str",
+        "x": 680,
+        "y": 100,
+        "wires": [
+            [
+                "70dff909.28498"
+            ]
+        ]
+    },
+    {
+        "id": "19d20364a52bf695",
+        "type": "change",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "medium",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 480,
+        "wires": [
+            [
+                "70dff909.28498"
+            ]
+        ]
+    },
+    {
+        "id": "7bc10efd4607420e",
+        "type": "change",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "high",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 520,
+        "wires": [
+            [
+                "70dff909.28498"
+            ]
+        ]
+    },
+    {
+        "id": "d7f329f8f1812fc3",
+        "type": "mqtt out",
+        "z": "b75a5ea0.a8f4e8",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "683f7eec.5c62c",
+        "x": 980,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d9df279c1cba1a50",
+        "type": "change",
+        "z": "b75a5ea0.a8f4e8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "global.state.setPoint.value",
+                "tot": "env"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "ha/sensor/bread/setpoint/state",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 240,
+        "wires": [
+            [
+                "d7f329f8f1812fc3"
+            ]
+        ]
+    },
+    {
+        "id": "91b18f3ab3761967",
+        "type": "change",
+        "z": "64672e75.03f4a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"channel0\":true,\"channel1\":true}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1100,
+        "y": 620,
+        "wires": [
+            [
+                "2edb92ac.0ac33e"
+            ]
+        ]
+    },
+    {
+        "id": "89eaf676b0f72dfc",
+        "type": "change",
+        "z": "64672e75.03f4a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"channel0\":true,\"channel1\":true}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1280,
+        "y": 740,
+        "wires": [
+            [
+                "2edb92ac.0ac33e"
+            ]
+        ]
+    },
+    {
+        "id": "ae196c70b0a28680",
+        "type": "inject",
+        "z": "b75a5ea0.a8f4e8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b55010a07f38d401",
+        "type": "change",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "ha/bread_chamber/state",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 420,
+        "wires": [
+            [
+                "4aa17358.f54e8c"
+            ]
+        ]
+    },
+    {
+        "id": "97ed996ad44ad02c",
+        "type": "change",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "off",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "ha/bread_chamber/mode/state",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 940,
+        "y": 300,
+        "wires": [
+            [
+                "70dff909.28498"
+            ]
+        ]
+    },
+    {
+        "id": "d2a76748d119082f",
+        "type": "change",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "auto",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "ha/bread_chamber/mode/state",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 580,
+        "wires": [
+            [
+                "70dff909.28498"
+            ]
+        ]
+    },
+    {
+        "id": "887956a106af9471",
+        "type": "mqtt in",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "topic": "ha/bread_chamber/switch_off",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "683f7eec.5c62c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 540,
+        "y": 940,
+        "wires": [
+            [
+                "3be8e03006a20d66"
+            ]
+        ]
+    },
+    {
+        "id": "3be8e03006a20d66",
+        "type": "change",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "offline",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "ha/bread_chamber/available",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "state.chamberState.value",
+                "pt": "global",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 940,
+        "wires": [
+            [
+                "70dff909.28498"
+            ]
+        ]
+    },
+    {
+        "id": "944c499476cf8ec1",
+        "type": "exec",
+        "z": "ef7332d8.b66878",
+        "command": "sudo reboot now",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1220,
+        "y": 980,
+        "wires": [
+            [],
+            [],
+            []
         ]
     }
 ]
