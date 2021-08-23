@@ -6055,5 +6055,245 @@
                 "70dff909.28498"
             ]
         ]
+    },
+    {
+        "id": "887956a106af9471",
+        "type": "mqtt in",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "topic": "ha/bread_chamber/switch_off",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "683f7eec.5c62c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 540,
+        "y": 940,
+        "wires": [
+            [
+                "3be8e03006a20d66"
+            ]
+        ]
+    },
+    {
+        "id": "3be8e03006a20d66",
+        "type": "change",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "offline",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "ha/bread_chamber/available",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "state.chamberState.value",
+                "pt": "global",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 940,
+        "wires": [
+            [
+                "70dff909.28498"
+            ]
+        ]
+    },
+    {
+        "id": "944c499476cf8ec1",
+        "type": "exec",
+        "z": "ef7332d8.b66878",
+        "command": "sudo reboot now",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1220,
+        "y": 980,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "90c3ee35763eae63",
+        "type": "delay",
+        "z": "36270e4a731322c2",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "x": 570,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "512629b640e774a7",
+        "type": "trigger",
+        "z": "36270e4a731322c2",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 990,
+        "y": 440,
+        "wires": [
+            [
+                "0bf3e6a3c532e3a6",
+                "3155786378dd8137"
+            ]
+        ]
+    },
+    {
+        "id": "edd41f7e57b80a61",
+        "type": "get-shared-state",
+        "z": "36270e4a731322c2",
+        "state": "e06ffb1d.7fc6a",
+        "name": "chamberState",
+        "triggerOnInit": true,
+        "x": 230,
+        "y": 480,
+        "wires": [
+            [
+                "3833d56cbfd69f0d"
+            ]
+        ]
+    },
+    {
+        "id": "3833d56cbfd69f0d",
+        "type": "switch",
+        "z": "36270e4a731322c2",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "gt",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 480,
+        "wires": [
+            [
+                "512629b640e774a7"
+            ],
+            [
+                "bc1c4ffc3c75a25d"
+            ]
+        ]
+    },
+    {
+        "id": "bc1c4ffc3c75a25d",
+        "type": "change",
+        "z": "36270e4a731322c2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 520,
+        "wires": [
+            [
+                "512629b640e774a7"
+            ]
+        ]
+    },
+    {
+        "id": "0bf3e6a3c532e3a6",
+        "type": "exec",
+        "z": "36270e4a731322c2",
+        "command": "sudo #",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": true,
+        "oldrc": false,
+        "name": "",
+        "x": 1320,
+        "y": 420,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3155786378dd8137",
+        "type": "debug",
+        "z": "36270e4a731322c2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 300,
+        "wires": []
     }
 ]
