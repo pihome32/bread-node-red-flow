@@ -2238,7 +2238,7 @@
         "name": "DAC",
         "triggerOnInit": true,
         "x": 230,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "1e8f4cd1.7b9e23",
@@ -5332,7 +5332,7 @@
         "name": "",
         "topic": "",
         "qos": "",
-        "retain": "true",
+        "retain": "false",
         "respTopic": "",
         "contentType": "",
         "userProps": "",
@@ -5604,8 +5604,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 890,
-        "y": 120,
+        "x": 870,
+        "y": 100,
         "wires": [
             [
                 "2edb92ac.0ac33e"
@@ -5658,8 +5658,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1230,
-        "y": 360,
+        "x": 1170,
+        "y": 380,
         "wires": [
             [
                 "2edb92ac.0ac33e"
@@ -5695,24 +5695,6 @@
         ]
     },
     {
-        "id": "4b3e7a4dac59ddcf",
-        "type": "mqtt out",
-        "z": "36270e4a731322c2",
-        "name": "",
-        "topic": "request/hat_brick/Vtg/get_sleep_mode",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "74dcdab5.83e964",
-        "x": 900,
-        "y": 220,
-        "wires": []
-    },
-    {
         "id": "a521eb76ed174b2c",
         "type": "template",
         "z": "36270e4a731322c2",
@@ -5726,9 +5708,7 @@
         "x": 520,
         "y": 220,
         "wires": [
-            [
-                "4b3e7a4dac59ddcf"
-            ]
+            []
         ]
     },
     {
@@ -6153,8 +6133,8 @@
         "randomUnits": "seconds",
         "drop": false,
         "allowrate": false,
-        "x": 570,
-        "y": 400,
+        "x": 700,
+        "y": 660,
         "wires": [
             []
         ]
@@ -6180,8 +6160,7 @@
         "y": 440,
         "wires": [
             [
-                "0bf3e6a3c532e3a6",
-                "3155786378dd8137"
+                "0bf3e6a3c532e3a6"
             ]
         ]
     },
@@ -6264,7 +6243,7 @@
         "id": "0bf3e6a3c532e3a6",
         "type": "exec",
         "z": "36270e4a731322c2",
-        "command": "sudo #",
+        "command": "sudo shutdown -h now #",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -6272,7 +6251,7 @@
         "winHide": true,
         "oldrc": false,
         "name": "",
-        "x": 1320,
+        "x": 1370,
         "y": 420,
         "wires": [
             [],
@@ -6281,19 +6260,248 @@
         ]
     },
     {
-        "id": "3155786378dd8137",
-        "type": "debug",
+        "id": "65aa653f0d6e3356",
+        "type": "get-shared-state",
         "z": "36270e4a731322c2",
+        "state": "7bda2608.497328",
+        "name": "heaterTemp",
+        "triggerOnInit": true,
+        "x": 270,
+        "y": 340,
+        "wires": [
+            [
+                "e4e84ca36014a818"
+            ]
+        ]
+    },
+    {
+        "id": "e4e84ca36014a818",
+        "type": "switch",
+        "z": "36270e4a731322c2",
+        "name": ">90",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "90",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 490,
+        "y": 320,
+        "wires": [
+            [
+                "1b0514a061736047"
+            ]
+        ]
+    },
+    {
+        "id": "1b0514a061736047",
+        "type": "change",
+        "z": "36270e4a731322c2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "off",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "ha/bread_chamber/mode/state",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 320,
+        "wires": [
+            [
+                "4f85ec3bd6412c4d"
+            ]
+        ]
+    },
+    {
+        "id": "4f85ec3bd6412c4d",
+        "type": "mqtt out",
+        "z": "36270e4a731322c2",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "683f7eec.5c62c",
+        "x": 920,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2f8adb9d63c8fe64",
+        "type": "switch",
+        "z": "36270e4a731322c2",
+        "name": ">55",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "55",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 490,
+        "y": 400,
+        "wires": [
+            [
+                "1b0514a061736047"
+            ]
+        ]
+    },
+    {
+        "id": "c5a897f7714653a2",
+        "type": "get-shared-state",
+        "z": "36270e4a731322c2",
+        "state": "f6f305728d7ada59",
+        "name": "chipTemperature",
+        "triggerOnInit": true,
+        "x": 260,
+        "y": 400,
+        "wires": [
+            [
+                "2f8adb9d63c8fe64"
+            ]
+        ]
+    },
+    {
+        "id": "6183971395ab95dd",
+        "type": "change",
+        "z": "64672e75.03f4a8",
+        "name": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 870,
+        "y": 140,
+        "wires": [
+            [
+                "2edb92ac.0ac33e"
+            ]
+        ]
+    },
+    {
+        "id": "2ac1bb60ca1924aa",
+        "type": "get-shared-state",
+        "z": "64672e75.03f4a8",
+        "state": "15fe707b.cbdd78",
+        "name": "heaterFAN",
+        "triggerOnInit": true,
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "977ac8a3efeef941"
+            ]
+        ]
+    },
+    {
+        "id": "977ac8a3efeef941",
+        "type": "template",
+        "z": "64672e75.03f4a8",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"channel0\":{{global.state.heaterFAN.value}},\"channel1\":{{global.state.powerRelay.value}}}",
+        "output": "str",
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "6183971395ab95dd"
+            ]
+        ]
+    },
+    {
+        "id": "fe1ac5ae4f472bfe",
+        "type": "get-shared-state",
+        "z": "64672e75.03f4a8",
+        "state": "1dc4d413.03488c",
+        "name": "powerRelay",
+        "triggerOnInit": true,
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "977ac8a3efeef941"
+            ]
+        ]
+    },
+    {
+        "id": "61de8e0d97604ac1",
+        "type": "debug",
+        "z": "64672e75.03f4a8",
         "name": "",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1260,
-        "y": 300,
+        "x": 1600,
+        "y": 520,
         "wires": []
+    },
+    {
+        "id": "48be99a05845ba34",
+        "type": "mqtt in",
+        "z": "64672e75.03f4a8",
+        "name": "",
+        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "683f7eec.5c62c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 1510,
+        "y": 540,
+        "wires": [
+            [
+                "61de8e0d97604ac1"
+            ]
+        ]
     }
 ]
