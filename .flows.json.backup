@@ -4666,8 +4666,6 @@
         "y": 120,
         "wires": [
             [
-                "e7000c20.4ebba8",
-                "201a51e6.c1597e",
                 "d9df279c1cba1a50"
             ]
         ]
@@ -5124,14 +5122,14 @@
         "type": "mqtt in",
         "z": "ef7332d8.b66878",
         "name": "",
-        "topic": "ha/bread_chamber/mode/set",
+        "topic": "ha/switch/bread/set",
         "qos": "2",
         "datatype": "auto",
         "broker": "683f7eec.5c62c",
         "nl": false,
         "rap": true,
         "rh": 0,
-        "x": 640,
+        "x": 610,
         "y": 840,
         "wires": [
             [
@@ -5162,7 +5160,7 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "auto",
+                "v": "on",
                 "vt": "str"
             },
             {
@@ -5255,7 +5253,8 @@
         "y": 200,
         "wires": [
             [
-                "5296dfbf.dad038"
+                "5296dfbf.dad038",
+                "3c1126ae73b243df"
             ]
         ]
     },
@@ -5353,7 +5352,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "low",
+                "to": "idle",
                 "tot": "str"
             }
         ],
@@ -5380,7 +5379,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "auto",
+                "to": "standby",
                 "tot": "str"
             }
         ],
@@ -5750,7 +5749,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "medium",
+                "to": "heating",
                 "tot": "str"
             }
         ],
@@ -5777,7 +5776,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "high",
+                "to": "cooling",
                 "tot": "str"
             }
         ],
@@ -5786,8 +5785,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 910,
-        "y": 520,
+        "x": 850,
+        "y": 580,
         "wires": [
             [
                 "70dff909.28498"
@@ -5985,7 +5984,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "ha/bread_chamber/mode/state",
+                "to": "ha/switch/bread/state",
                 "tot": "str"
             }
         ],
@@ -6012,14 +6011,14 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "auto",
+                "to": "on",
                 "tot": "str"
             },
             {
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "ha/bread_chamber/mode/state",
+                "to": "ha/switch/bread/state",
                 "tot": "str"
             }
         ],
@@ -6028,8 +6027,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1060,
-        "y": 580,
+        "x": 1020,
+        "y": 620,
         "wires": [
             [
                 "70dff909.28498"
@@ -6468,40 +6467,19 @@
         ]
     },
     {
-        "id": "61de8e0d97604ac1",
+        "id": "3c1126ae73b243df",
         "type": "debug",
-        "z": "64672e75.03f4a8",
+        "z": "ef7332d8.b66878",
         "name": "",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1600,
-        "y": 520,
+        "x": 1320,
+        "y": 120,
         "wires": []
-    },
-    {
-        "id": "48be99a05845ba34",
-        "type": "mqtt in",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "topic": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "683f7eec.5c62c",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "x": 1510,
-        "y": 540,
-        "wires": [
-            [
-                "61de8e0d97604ac1"
-            ]
-        ]
     }
 ]
