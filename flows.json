@@ -5122,14 +5122,14 @@
         "type": "mqtt in",
         "z": "ef7332d8.b66878",
         "name": "",
-        "topic": "ha/switch/bread/set",
+        "topic": "ha/bread_chamber/set",
         "qos": "2",
         "datatype": "auto",
         "broker": "683f7eec.5c62c",
         "nl": false,
         "rap": true,
         "rh": 0,
-        "x": 610,
+        "x": 620,
         "y": 840,
         "wires": [
             [
@@ -6088,12 +6088,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 860,
-        "y": 940,
+        "x": 900,
+        "y": 920,
         "wires": [
-            [
-                "70dff909.28498"
-            ]
+            []
         ]
     },
     {

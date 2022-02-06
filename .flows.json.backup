@@ -5950,7 +5950,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "ha/bread_chamber/state",
+                "to": "ha/sensor/bread_state/state",
                 "tot": "str"
             }
         ],
