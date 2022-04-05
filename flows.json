@@ -1306,105 +1306,15 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 170,
+        "x": 150,
         "y": 600,
         "wires": [
+            [],
             [
-                "c11bb4dd.84b3f",
-                "eaaf566c.fd8c78",
-                "91b18f3ab3761967"
+                "9be6c47a.6a94f"
             ],
             [
-                "9be6c47a.6a94f",
-                "cd0ceb27.ad777",
-                "89eaf676b0f72dfc"
-            ],
-            [
-                "3be3c18b.3156ee",
-                "f6371b8f.ce0d1",
-                "91b18f3ab3761967"
-            ]
-        ]
-    },
-    {
-        "id": "6926ac7a.6a98dc",
-        "type": "set-shared-state",
-        "z": "64672e75.03f4a8",
-        "state": "ddc00501.5975f8",
-        "name": "heaterRelay",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 1070,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "53d30698.598b",
-        "type": "set-shared-state",
-        "z": "64672e75.03f4a8",
-        "state": "b57179f0.c9eaa",
-        "name": "coolerRelay",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 1090,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "c11bb4dd.84b3f",
-        "type": "change",
-        "z": "64672e75.03f4a8",
-        "name": "false",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430,
-        "y": 580,
-        "wires": [
-            [
-                "6926ac7a.6a98dc",
-                "53d30698.598b",
-                "11c84310.ed2465"
-            ]
-        ]
-    },
-    {
-        "id": "3be3c18b.3156ee",
-        "type": "change",
-        "z": "64672e75.03f4a8",
-        "name": "false",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 450,
-        "y": 700,
-        "wires": [
-            [
-                "6926ac7a.6a98dc"
+                "f6371b8f.ce0d1"
             ]
         ]
     },
@@ -1427,39 +1337,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 660,
+        "x": 510,
+        "y": 580,
         "wires": [
             [
-                "6926ac7a.6a98dc"
-            ]
-        ]
-    },
-    {
-        "id": "cd0ceb27.ad777",
-        "type": "change",
-        "z": "64672e75.03f4a8",
-        "name": "false",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 450,
-        "y": 760,
-        "wires": [
-            [
-                "53d30698.598b",
-                "11c84310.ed2465"
+                "2e70321a.50446e",
+                "fc60ef3.e26f59"
             ]
         ]
     },
@@ -1482,12 +1365,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 820,
+        "x": 510,
+        "y": 620,
         "wires": [
             [
-                "53d30698.598b",
-                "11c84310.ed2465"
+                "b3fd51bd.e6752",
+                "fc60ef3.e26f59"
             ]
         ]
     },
@@ -1676,8 +1559,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 540,
+        "x": 510,
+        "y": 520,
         "wires": [
             [
                 "2f521b49.5af13c"
@@ -1694,7 +1577,7 @@
         "provideOutput": false,
         "outputs": 0,
         "x": 970,
-        "y": 600,
+        "y": 620,
         "wires": []
     },
     {
@@ -1726,19 +1609,6 @@
         ]
     },
     {
-        "id": "11c84310.ed2465",
-        "type": "set-shared-state",
-        "z": "64672e75.03f4a8",
-        "state": "15fe707b.cbdd78",
-        "name": "heaterFAN",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 1070,
-        "y": 860,
-        "wires": []
-    },
-    {
         "id": "30274e4a.4a1ff2",
         "type": "switch",
         "z": "64672e75.03f4a8",
@@ -1762,12 +1632,11 @@
         "y": 440,
         "wires": [
             [
-                "533adb8d.895ab4",
                 "8daf2ccb.cb67f8"
             ],
             [
-                "4ba42455.672e5c",
-                "eaaf566c.fd8c78"
+                "736bed0098eba611",
+                "8daf2ccb.cb67f8"
             ]
         ]
     },
@@ -1905,7 +1774,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1100,
+        "x": 1260,
         "y": 620,
         "wires": [
             [
@@ -2020,6 +1889,32 @@
         "wires": [
             [
                 "977ac8a3efeef941"
+            ]
+        ]
+    },
+    {
+        "id": "736bed0098eba611",
+        "type": "delay",
+        "z": "64672e75.03f4a8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 300,
+        "y": 480,
+        "wires": [
+            [
+                "eaaf566c.fd8c78",
+                "4ba42455.672e5c"
             ]
         ]
     },
@@ -2772,8 +2667,8 @@
         "max_interval": 600,
         "enable": "0",
         "disabled_op": "0",
-        "x": 870,
-        "y": 440,
+        "x": 890,
+        "y": 420,
         "wires": [
             [
                 "dd44341c.0ef3a8",
@@ -4324,5 +4219,4 @@
             ]
         ]
     }
-
 ]
