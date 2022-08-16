@@ -422,7 +422,7 @@
         "type": "shared-state",
         "name": "distance",
         "lbl": "",
-        "tags": "",
+        "tags": "ha/sensor/bread/chamberDistance/state",
         "historyCount": "2",
         "dataType": "num",
         "boolType": "bool",
@@ -757,6 +757,54 @@
         "boolStrTrue": "",
         "boolStrFalse": "",
         "precision": "1",
+        "numMin": "",
+        "numMax": "",
+        "unit": ""
+    },
+    {
+        "id": "a76f704b76945b33",
+        "type": "shared-state",
+        "name": "chamber_air_pressure",
+        "lbl": "",
+        "tags": "ha/sensor/bread/chamberAirPressure/state",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": ""
+    },
+    {
+        "id": "46c2942efd309a25",
+        "type": "shared-state",
+        "name": "chamber_air_quality",
+        "lbl": "",
+        "tags": "ha/sensor/bread/chamberAirQuality/state",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": ""
+    },
+    {
+        "id": "ee5d991292bcbb8e",
+        "type": "shared-state",
+        "name": "chamberHumidity",
+        "lbl": "",
+        "tags": "ha/sensor/bread/chamberHumidity/state",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
         "numMin": "",
         "numMax": "",
         "unit": ""
@@ -1455,6 +1503,7 @@
         "once": true,
         "onceDelay": "5",
         "topic": "",
+        "payload": "",
         "payloadType": "str",
         "x": 140,
         "y": 40,
@@ -1933,26 +1982,6 @@
         ]
     },
     {
-        "id": "464c1ae1.6163b4",
-        "type": "mqtt in",
-        "z": "c080d81d.548348",
-        "name": "",
-        "topic": "+/+/+/+/+/chamber/data/chamberTemp",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "74dcdab5.83e964",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 150,
-        "y": 100,
-        "wires": [
-            [
-                "3a3d4c6a.26f854"
-            ]
-        ]
-    },
-    {
         "id": "4d21aaf7.777404",
         "type": "mqtt in",
         "z": "c080d81d.548348",
@@ -2036,22 +2065,6 @@
         ]
     },
     {
-        "id": "3a3d4c6a.26f854",
-        "type": "json",
-        "z": "c080d81d.548348",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 410,
-        "y": 80,
-        "wires": [
-            [
-                "b1bdd7c1.448ec"
-            ]
-        ]
-    },
-    {
         "id": "1814f859.119ea",
         "type": "json",
         "z": "c080d81d.548348",
@@ -2080,33 +2093,6 @@
         "wires": [
             [
                 "633b83d9.9c207c"
-            ]
-        ]
-    },
-    {
-        "id": "b1bdd7c1.448ec",
-        "type": "change",
-        "z": "c080d81d.548348",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "msg.payload.temperature/100",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 570,
-        "y": 80,
-        "wires": [
-            [
-                "1bb22e0e.5a2d4a"
             ]
         ]
     },
@@ -2184,8 +2170,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 120,
-        "y": 680,
+        "x": 130,
+        "y": 760,
         "wires": [
             [
                 "8281097c.662558",
@@ -2203,8 +2189,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 750,
-        "y": 660,
+        "x": 760,
+        "y": 740,
         "wires": [
             []
         ]
@@ -2242,8 +2228,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
-        "y": 640,
+        "x": 410,
+        "y": 740,
         "wires": [
             [
                 "3bf4ab79.fee764"
@@ -2283,8 +2269,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
-        "y": 680,
+        "x": 410,
+        "y": 780,
         "wires": [
             [
                 "3bf4ab79.fee764"
@@ -2324,8 +2310,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
-        "y": 740,
+        "x": 410,
+        "y": 820,
         "wires": [
             [
                 "3bf4ab79.fee764"
@@ -2365,8 +2351,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
-        "y": 780,
+        "x": 420,
+        "y": 860,
         "wires": [
             [
                 "3bf4ab79.fee764"
@@ -2397,19 +2383,6 @@
         "outputs": 0,
         "x": 790,
         "y": 280,
-        "wires": []
-    },
-    {
-        "id": "1bb22e0e.5a2d4a",
-        "type": "set-shared-state",
-        "z": "c080d81d.548348",
-        "state": "6084ef9b.c26b6",
-        "name": "chamberTemp",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 760,
-        "y": 80,
         "wires": []
     },
     {
@@ -2500,6 +2473,205 @@
                 "59064a69af978b9e"
             ]
         ]
+    },
+    {
+        "id": "620d812db9859b52",
+        "type": "mqtt in",
+        "z": "c080d81d.548348",
+        "name": "",
+        "topic": "+/+/+/+/+/chamber/data/chamber_air_quality",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "74dcdab5.83e964",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 170,
+        "y": 540,
+        "wires": [
+            [
+                "d34ba1e244aa8f5d"
+            ]
+        ]
+    },
+    {
+        "id": "d34ba1e244aa8f5d",
+        "type": "json",
+        "z": "c080d81d.548348",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 410,
+        "y": 540,
+        "wires": [
+            [
+                "37b7bf3b8184a109",
+                "77fdb8ea3545b05c",
+                "a863d6ee8c0f945a",
+                "da676165dee5570d"
+            ]
+        ]
+    },
+    {
+        "id": "37b7bf3b8184a109",
+        "type": "change",
+        "z": "c080d81d.548348",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.air_pressure/100",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 580,
+        "wires": [
+            [
+                "51ebd5a15fe334d1"
+            ]
+        ]
+    },
+    {
+        "id": "51ebd5a15fe334d1",
+        "type": "set-shared-state",
+        "z": "c080d81d.548348",
+        "state": "a76f704b76945b33",
+        "name": "chamber_air_pressure",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 860,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "77fdb8ea3545b05c",
+        "type": "change",
+        "z": "c080d81d.548348",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.iaq_index",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 640,
+        "wires": [
+            [
+                "4d09783a245b7402"
+            ]
+        ]
+    },
+    {
+        "id": "4d09783a245b7402",
+        "type": "set-shared-state",
+        "z": "c080d81d.548348",
+        "state": "46c2942efd309a25",
+        "name": "chamber_air_quality",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 860,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "a863d6ee8c0f945a",
+        "type": "change",
+        "z": "c080d81d.548348",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.humidity/100",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 680,
+        "wires": [
+            [
+                "fd8c1cfddd1cf654"
+            ]
+        ]
+    },
+    {
+        "id": "fd8c1cfddd1cf654",
+        "type": "set-shared-state",
+        "z": "c080d81d.548348",
+        "state": "ee5d991292bcbb8e",
+        "name": "chamberHumidity",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 850,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "da676165dee5570d",
+        "type": "change",
+        "z": "c080d81d.548348",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.temperature/100",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 520,
+        "wires": [
+            [
+                "238a1ff556bbf0ee"
+            ]
+        ]
+    },
+    {
+        "id": "238a1ff556bbf0ee",
+        "type": "set-shared-state",
+        "z": "c080d81d.548348",
+        "state": "6084ef9b.c26b6",
+        "name": "chamberTemp",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 840,
+        "y": 520,
+        "wires": []
     },
     {
         "id": "7bb1e955.a8d99",
@@ -2700,14 +2872,14 @@
         "type": "function",
         "z": "d7e822af.c12a4",
         "name": "",
-        "func": "var state = msg.state;\n\nvar room = msg.room;\nvar setpoint = msg.setpoint;\nvar temp = msg.payload;\n\n\nvar coolerpid = {};\nvar heaterpid = {};\nvar newstate = {};\n\ncoolerpid.payload = setpoint + (setpoint -temp);\nheaterpid.payload = temp;\ncoolerpid.setpoint = setpoint ;\nheaterpid.setpoint = setpoint;\nnewstate.payload= state;\nstate = 2;\nif (setpoint > room + 1){\n    coolerpid.enable=false;\n    heaterpid.enable=true;\n    if (temp < setpoint + 1){ state=3;}\n\n} else if (setpoint < room -1){\n    coolerpid.enable=true;\n    heaterpid.enable=false;\n    if (temp > setpoint - 1){ state=4;}\n} else {\n    coolerpid.enable=false;\n    heaterpid.enable=false;\n    state = 2;\n\n}\n\nreturn [coolerpid,heaterpid,{\"payload\":state}];\n\n\n",
+        "func": "var state = msg.state;\n\nvar room = msg.room;\nvar setpoint = msg.setpoint;\nvar temp = msg.payload;\n\n\nvar coolerpid = {};\nvar heaterpid = {};\nvar newstate = {};\n\ncoolerpid.payload = setpoint + (setpoint -temp);\nheaterpid.payload = temp;\ncoolerpid.setpoint = setpoint ;\nheaterpid.setpoint = setpoint;\nnewstate.payload= state;\nstate = 2;\nif ((setpoint > room + 1) & (setpoint < 40)){\n    coolerpid.enable=false;\n    heaterpid.enable=true;\n    if (temp < setpoint + 1){ state=3}\n\n\n} else if (setpoint < room -1){\n    coolerpid.enable=true;\n    heaterpid.enable=false;\n    if (temp > setpoint - 1){ state=4}\n} else {\n    coolerpid.enable=false;\n    heaterpid.enable=false;\n    state = 2;\n\n}\n\nreturn [coolerpid,heaterpid,{\"payload\":state}];\n\n\n",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 360,
+        "x": 560,
+        "y": 400,
         "wires": [
             [
                 "596ca967.814d6",
@@ -3428,7 +3600,7 @@
         "name": "chipTemperature",
         "triggerOnInit": true,
         "x": 120,
-        "y": 780,
+        "y": 700,
         "wires": [
             [
                 "342edbbf2f0305dc"
@@ -3717,11 +3889,71 @@
         "wires": []
     },
     {
+        "id": "9d263253acdaedc2",
+        "type": "get-shared-state",
+        "z": "ef7332d8.b66878",
+        "state": "ee5d991292bcbb8e",
+        "name": "chamberHumidity",
+        "triggerOnInit": true,
+        "x": 120,
+        "y": 760,
+        "wires": [
+            [
+                "342edbbf2f0305dc"
+            ]
+        ]
+    },
+    {
+        "id": "d91ebbe7ccc37825",
+        "type": "get-shared-state",
+        "z": "ef7332d8.b66878",
+        "state": "a76f704b76945b33",
+        "name": "chamber_air_pressure",
+        "triggerOnInit": true,
+        "x": 140,
+        "y": 820,
+        "wires": [
+            [
+                "342edbbf2f0305dc"
+            ]
+        ]
+    },
+    {
+        "id": "69e79af1facf1428",
+        "type": "get-shared-state",
+        "z": "ef7332d8.b66878",
+        "state": "46c2942efd309a25",
+        "name": "chamber_air_quality",
+        "triggerOnInit": true,
+        "x": 130,
+        "y": 880,
+        "wires": [
+            [
+                "342edbbf2f0305dc"
+            ]
+        ]
+    },
+    {
+        "id": "45be862ae744657d",
+        "type": "get-shared-state",
+        "z": "ef7332d8.b66878",
+        "state": "7cc16dfd.c5bd2c",
+        "name": "distance",
+        "triggerOnInit": true,
+        "x": 100,
+        "y": 940,
+        "wires": [
+            [
+                "342edbbf2f0305dc"
+            ]
+        ]
+    },
+    {
         "id": "eaab018b.6bc7b8",
         "type": "comment",
         "z": "6ffc7dda.e666ec",
         "name": "",
-        "info": "Chamber state:\n- 1 sleep\n- 2 running\n\nChamber mode:\n- 1 stand by\n- 2 heating\n- 3 cooling\n\n\n\n",
+        "info": "Chamber state:\n- 1 sleep\n- 2 running\n\n\nChamber mode:\n- 1 stand by\n- 2 heating\n- 3 cooling\n\n\n\n",
         "x": 200,
         "y": 140,
         "wires": []
