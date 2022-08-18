@@ -49,6 +49,14 @@
         "info": ""
     },
     {
+        "id": "3f9f665d485f7e98",
+        "type": "tab",
+        "label": "E paper",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "a2c4834c.e7fa58",
         "type": "subflow",
         "name": "Process Simulation",
@@ -274,22 +282,6 @@
         "unit": ""
     },
     {
-        "id": "1dc4d413.03488c",
-        "type": "shared-state",
-        "name": "powerRelay",
-        "lbl": "",
-        "tags": "",
-        "historyCount": "2",
-        "dataType": "bool",
-        "boolType": "bool",
-        "boolStrTrue": "",
-        "boolStrFalse": "",
-        "precision": "",
-        "numMin": "",
-        "numMax": "",
-        "unit": ""
-    },
-    {
         "id": "bff6e5d1.24ce68",
         "type": "shared-state",
         "name": "data",
@@ -422,7 +414,7 @@
         "type": "shared-state",
         "name": "distance",
         "lbl": "",
-        "tags": "ha/sensor/bread/chamberDistance/state",
+        "tags": "ha/sensor/bread/chamberRawDistance/state",
         "historyCount": "2",
         "dataType": "num",
         "boolType": "bool",
@@ -1317,7 +1309,8 @@
         "y": 360,
         "wires": [
             [
-                "30274e4a.4a1ff2"
+                "dc69b3e825ee6ccd",
+                "8daf2ccb.cb67f8"
             ]
         ]
     },
@@ -1329,6 +1322,11 @@
         "property": "payload",
         "propertyType": "msg",
         "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
             {
                 "t": "eq",
                 "v": "2",
@@ -1347,11 +1345,16 @@
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 3,
-        "x": 150,
-        "y": 600,
+        "outputs": 4,
+        "x": 170,
+        "y": 480,
         "wires": [
-            [],
+            [
+                "8daf2ccb.cb67f8"
+            ],
+            [
+                "8daf2ccb.cb67f8"
+            ],
             [
                 "9be6c47a.6a94f"
             ],
@@ -1380,11 +1383,11 @@
         "to": "",
         "reg": false,
         "x": 510,
-        "y": 580,
+        "y": 500,
         "wires": [
             [
                 "2e70321a.50446e",
-                "fc60ef3.e26f59"
+                "2f521b49.5af13c"
             ]
         ]
     },
@@ -1408,11 +1411,11 @@
         "to": "",
         "reg": false,
         "x": 510,
-        "y": 620,
+        "y": 580,
         "wires": [
             [
                 "b3fd51bd.e6752",
-                "fc60ef3.e26f59"
+                "2f521b49.5af13c"
             ]
         ]
     },
@@ -1534,13 +1537,12 @@
         "to": "",
         "reg": false,
         "x": 510,
-        "y": 440,
+        "y": 420,
         "wires": [
             [
                 "2e70321a.50446e",
                 "b3fd51bd.e6752",
-                "2f521b49.5af13c",
-                "fc60ef3.e26f59"
+                "2f521b49.5af13c"
             ]
         ]
     },
@@ -1574,53 +1576,13 @@
         "id": "2f521b49.5af13c",
         "type": "set-shared-state",
         "z": "64672e75.03f4a8",
-        "state": "1dc4d413.03488c",
-        "name": "powerRelay",
+        "state": "c8491213.eb9958",
+        "name": "enclosureFan",
         "triggerOnInit": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 970,
+        "x": 980,
         "y": 540,
-        "wires": []
-    },
-    {
-        "id": "eaaf566c.fd8c78",
-        "type": "change",
-        "z": "64672e75.03f4a8",
-        "name": "true",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 510,
-        "y": 520,
-        "wires": [
-            [
-                "2f521b49.5af13c"
-            ]
-        ]
-    },
-    {
-        "id": "fc60ef3.e26f59",
-        "type": "set-shared-state",
-        "z": "64672e75.03f4a8",
-        "state": "15fe707b.cbdd78",
-        "name": "heaterFAN",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 970,
-        "y": 620,
         "wires": []
     },
     {
@@ -1648,38 +1610,6 @@
             [
                 "e2f8990dd097f915",
                 "a891f18936a390a9"
-            ]
-        ]
-    },
-    {
-        "id": "30274e4a.4a1ff2",
-        "type": "switch",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 150,
-        "y": 440,
-        "wires": [
-            [
-                "8daf2ccb.cb67f8"
-            ],
-            [
-                "736bed0098eba611",
-                "8daf2ccb.cb67f8"
             ]
         ]
     },
@@ -1792,74 +1722,6 @@
         ]
     },
     {
-        "id": "91b18f3ab3761967",
-        "type": "change",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"channel0\":true,\"channel1\":true}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1260,
-        "y": 620,
-        "wires": [
-            [
-                "2edb92ac.0ac33e"
-            ]
-        ]
-    },
-    {
-        "id": "89eaf676b0f72dfc",
-        "type": "change",
-        "z": "64672e75.03f4a8",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "tinkerforge/request/industrial_dual_relay_bricklet/Tfe/set_value",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"channel0\":true,\"channel1\":true}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1280,
-        "y": 740,
-        "wires": [
-            [
-                "2edb92ac.0ac33e"
-            ]
-        ]
-    },
-    {
         "id": "6183971395ab95dd",
         "type": "change",
         "z": "64672e75.03f4a8",
@@ -1910,7 +1772,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "{\"channel0\":{{global.state.heaterFAN.value}},\"channel1\":{{global.state.powerRelay.value}}}",
+        "template": "{\"channel0\":{{global.state.enclosureFan.value}},\"channel1\":{{global.state.heaterFAN.value}}}",
         "output": "str",
         "x": 380,
         "y": 160,
@@ -1924,8 +1786,8 @@
         "id": "fe1ac5ae4f472bfe",
         "type": "get-shared-state",
         "z": "64672e75.03f4a8",
-        "state": "1dc4d413.03488c",
-        "name": "powerRelay",
+        "state": "c8491213.eb9958",
+        "name": "enclosureFan",
         "triggerOnInit": true,
         "x": 110,
         "y": 300,
@@ -1936,12 +1798,12 @@
         ]
     },
     {
-        "id": "736bed0098eba611",
+        "id": "dc69b3e825ee6ccd",
         "type": "delay",
         "z": "64672e75.03f4a8",
         "name": "",
         "pauseType": "delay",
-        "timeout": "1",
+        "timeout": "2",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -1952,11 +1814,10 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 300,
-        "y": 480,
+        "x": 120,
+        "y": 400,
         "wires": [
             [
-                "eaaf566c.fd8c78",
                 "4ba42455.672e5c"
             ]
         ]
@@ -3949,6 +3810,21 @@
         ]
     },
     {
+        "id": "1d250d54720128c4",
+        "type": "get-shared-state",
+        "z": "ef7332d8.b66878",
+        "state": "c8491213.eb9958",
+        "name": "enclosureFan",
+        "triggerOnInit": true,
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "342edbbf2f0305dc"
+            ]
+        ]
+    },
+    {
         "id": "eaab018b.6bc7b8",
         "type": "comment",
         "z": "6ffc7dda.e666ec",
@@ -4040,7 +3916,6 @@
                 "8bd583fb.b74e88",
                 "3a138821.9280b8",
                 "7674ec0d.8ebf2c",
-                "768b7a96.60dfe4",
                 "2f8390ec.88537"
             ]
         ]
@@ -4069,19 +3944,6 @@
         "outputs": 0,
         "x": 760,
         "y": 500,
-        "wires": []
-    },
-    {
-        "id": "768b7a96.60dfe4",
-        "type": "set-shared-state",
-        "z": "b75a5ea0.a8f4e8",
-        "state": "1dc4d413.03488c",
-        "name": "powerRelay",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 750,
-        "y": 560,
         "wires": []
     },
     {
@@ -4334,7 +4196,8 @@
         "y": 340,
         "wires": [
             [
-                "e4e84ca36014a818"
+                "e4e84ca36014a818",
+                "0ebb0ac58ec780d9"
             ]
         ]
     },
@@ -4452,6 +4315,267 @@
         "wires": [
             [
                 "2f8adb9d63c8fe64"
+            ]
+        ]
+    },
+    {
+        "id": "0ebb0ac58ec780d9",
+        "type": "function",
+        "z": "36270e4a731322c2",
+        "name": "",
+        "func": "var room_temp = global.get(\"state.roomTemp.value\");\nvar heaterFan= false;\nif (msg.payload > room_temp +15){\n    heaterFan= true}\nmsg.payload=heaterFan;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 260,
+        "wires": [
+            [
+                "aca487a64466c578"
+            ]
+        ]
+    },
+    {
+        "id": "aca487a64466c578",
+        "type": "set-shared-state",
+        "z": "36270e4a731322c2",
+        "state": "15fe707b.cbdd78",
+        "name": "heaterFAN",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 590,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "4fb127e13c64d8dc",
+        "type": "inject",
+        "z": "3f9f665d485f7e98",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "a34b24a3e7f2026c"
+            ]
+        ]
+    },
+    {
+        "id": "79d1bd849dc8fe5a",
+        "type": "mqtt in",
+        "z": "3f9f665d485f7e98",
+        "name": "",
+        "topic": "+/+/e_paper_296x128_bricklet/#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "74dcdab5.83e964",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 420,
+        "wires": [
+            [
+                "9ba0bf69cc7f3755"
+            ]
+        ]
+    },
+    {
+        "id": "9ba0bf69cc7f3755",
+        "type": "debug",
+        "z": "3f9f665d485f7e98",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "5eb4f00e519bd371",
+        "type": "delay",
+        "z": "3f9f665d485f7e98",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 770,
+        "y": 240,
+        "wires": [
+            [
+                "02a27dcb1f30f88d"
+            ]
+        ]
+    },
+    {
+        "id": "02a27dcb1f30f88d",
+        "type": "change",
+        "z": "3f9f665d485f7e98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "tinkerforge/request/e_paper_296x128_bricklet/LwN/draw",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 180,
+        "wires": [
+            [
+                "7b83cd7c5a9e3852"
+            ]
+        ]
+    },
+    {
+        "id": "6e8abed6d4dbb957",
+        "type": "change",
+        "z": "3f9f665d485f7e98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"color\": \"white\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "tinkerforge/request/e_paper_296x128_bricklet/LwN/fill_display",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 100,
+        "wires": [
+            [
+                "d0b286cefbb17788",
+                "7b83cd7c5a9e3852"
+            ]
+        ]
+    },
+    {
+        "id": "7b83cd7c5a9e3852",
+        "type": "mqtt out",
+        "z": "3f9f665d485f7e98",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "74dcdab5.83e964",
+        "x": 970,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d0b286cefbb17788",
+        "type": "change",
+        "z": "3f9f665d485f7e98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{    \"position_x\": 16,    \"position_y\": 48,    \"font\": \"12x16\",    \"color\": \"black\",    \"orientation\": \"horizontal\",    \"text\": msg.chamberTemp }",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "tinkerforge/request/e_paper_296x128_bricklet/LwN/draw_text",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 180,
+        "wires": [
+            [
+                "7b83cd7c5a9e3852",
+                "5eb4f00e519bd371"
+            ]
+        ]
+    },
+    {
+        "id": "a34b24a3e7f2026c",
+        "type": "function",
+        "z": "3f9f665d485f7e98",
+        "name": "",
+        "func": "var chamberTemp =global.get(\"state.chamberTemp.value\");\n\nmsg.chamberTemp=chamberTemp.toString() + \"^C\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "6e8abed6d4dbb957"
             ]
         ]
     }
