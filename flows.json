@@ -171,19 +171,25 @@
         "broker": "localhost",
         "port": "1883",
         "clientid": "",
+        "autoConnect": true,
         "usetls": false,
         "compatmode": false,
+        "protocolVersion": "4",
         "keepalive": "60",
         "cleansession": true,
         "birthTopic": "",
         "birthQos": "0",
         "birthPayload": "",
+        "birthMsg": {},
         "closeTopic": "",
         "closeQos": "0",
         "closePayload": "",
+        "closeMsg": {},
         "willTopic": "",
         "willQos": "0",
-        "willPayload": ""
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
     },
     {
         "id": "683f7eec.5c62c",
@@ -791,6 +797,22 @@
         "name": "chamberHumidity",
         "lbl": "",
         "tags": "ha/sensor/bread/chamberHumidity/state",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": ""
+    },
+    {
+        "id": "eec806488eba2258",
+        "type": "shared-state",
+        "name": "roomHumidity",
+        "lbl": "",
+        "tags": "ha/sensor/bread/roomTemperature/state",
         "historyCount": "2",
         "dataType": "num",
         "boolType": "bool",
@@ -3059,8 +3081,8 @@
         "state": "6084ef9b.c26b6",
         "name": "chamberTemp",
         "triggerOnInit": true,
-        "x": 120,
-        "y": 180,
+        "x": 130,
+        "y": 200,
         "wires": [
             [
                 "342edbbf2f0305dc"
@@ -3344,7 +3366,7 @@
         "name": "",
         "topic": "",
         "qos": "0",
-        "retain": "true",
+        "retain": "false",
         "respTopic": "",
         "contentType": "",
         "userProps": "",
@@ -3823,6 +3845,53 @@
                 "342edbbf2f0305dc"
             ]
         ]
+    },
+    {
+        "id": "526ae6216a06c470",
+        "type": "inject",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 1040,
+        "wires": [
+            [
+                "07ddaae7385adae9"
+            ]
+        ]
+    },
+    {
+        "id": "07ddaae7385adae9",
+        "type": "mqtt out",
+        "z": "ef7332d8.b66878",
+        "name": "",
+        "topic": "tinkerforge/request/distance_ir_v2_bricklet/XYZ/get_distance",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "74dcdab5.83e964",
+        "x": 680,
+        "y": 1040,
+        "wires": []
     },
     {
         "id": "eaab018b.6bc7b8",
