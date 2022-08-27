@@ -824,6 +824,38 @@
         "unit": ""
     },
     {
+        "id": "12c64b76827f6e95",
+        "type": "shared-state",
+        "name": "fermentation_volume",
+        "lbl": "",
+        "tags": "ha/sensor/bread/fermentationVolume/state",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": ""
+    },
+    {
+        "id": "22faefc49376ed22",
+        "type": "shared-state",
+        "name": "container",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "str",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": ""
+    },
+    {
         "id": "30026e01.59ef02",
         "type": "function",
         "z": "a2c4834c.e7fa58",
@@ -1451,7 +1483,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "tinkerforge/request/analog_out_v2_bricklet/vm5/set_output_voltage",
+                "to": "tinkerforge/request/analog_out_v2_bricklet/21tN/set_output_voltage",
                 "tot": "str"
             },
             {
@@ -1885,26 +1917,6 @@
         ]
     },
     {
-        "id": "e9bbfe74.dcfd2",
-        "type": "mqtt in",
-        "z": "c080d81d.548348",
-        "name": "",
-        "topic": "+/+/+/+/+/chamber/data/distance",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "74dcdab5.83e964",
-        "nl": false,
-        "rap": false,
-        "inputs": 0,
-        "x": 130,
-        "y": 360,
-        "wires": [
-            [
-                "1a0aeb86.b2dfa4"
-            ]
-        ]
-    },
-    {
         "id": "519dddd5.a6b124",
         "type": "json",
         "z": "c080d81d.548348",
@@ -1964,22 +1976,6 @@
         ]
     },
     {
-        "id": "1a0aeb86.b2dfa4",
-        "type": "json",
-        "z": "c080d81d.548348",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 370,
-        "y": 360,
-        "wires": [
-            [
-                "633b83d9.9c207c"
-            ]
-        ]
-    },
-    {
         "id": "f5a51b2b.e15118",
         "type": "change",
         "z": "c080d81d.548348",
@@ -2003,33 +1999,6 @@
         "wires": [
             [
                 "9582e8db.d8e608"
-            ]
-        ]
-    },
-    {
-        "id": "633b83d9.9c207c",
-        "type": "change",
-        "z": "c080d81d.548348",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "msg.payload.distance",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 560,
-        "y": 360,
-        "wires": [
-            [
-                "918c5608.5db458"
             ]
         ]
     },
@@ -2241,19 +2210,6 @@
                 "3bf4ab79.fee764"
             ]
         ]
-    },
-    {
-        "id": "918c5608.5db458",
-        "type": "set-shared-state",
-        "z": "c080d81d.548348",
-        "state": "7cc16dfd.c5bd2c",
-        "name": "distance",
-        "triggerOnInit": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 800,
-        "y": 360,
-        "wires": []
     },
     {
         "id": "9582e8db.d8e608",
@@ -3817,21 +3773,6 @@
         ]
     },
     {
-        "id": "45be862ae744657d",
-        "type": "get-shared-state",
-        "z": "ef7332d8.b66878",
-        "state": "7cc16dfd.c5bd2c",
-        "name": "distance",
-        "triggerOnInit": true,
-        "x": 100,
-        "y": 940,
-        "wires": [
-            [
-                "342edbbf2f0305dc"
-            ]
-        ]
-    },
-    {
         "id": "1d250d54720128c4",
         "type": "get-shared-state",
         "z": "ef7332d8.b66878",
@@ -3847,50 +3788,37 @@
         ]
     },
     {
-        "id": "526ae6216a06c470",
-        "type": "inject",
+        "id": "4527b90d9e12de9a",
+        "type": "mqtt in",
         "z": "ef7332d8.b66878",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 240,
-        "y": 1040,
+        "topic": "ha/bread_chamber/set_container",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "683f7eec.5c62c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 1020,
         "wires": [
             [
-                "07ddaae7385adae9"
+                "20a16f918ef11233"
             ]
         ]
     },
     {
-        "id": "07ddaae7385adae9",
-        "type": "mqtt out",
+        "id": "20a16f918ef11233",
+        "type": "set-shared-state",
         "z": "ef7332d8.b66878",
-        "name": "",
-        "topic": "tinkerforge/request/distance_ir_v2_bricklet/XYZ/get_distance",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "74dcdab5.83e964",
-        "x": 680,
-        "y": 1040,
+        "state": "22faefc49376ed22",
+        "name": "container",
+        "triggerOnInit": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 880,
+        "y": 1020,
         "wires": []
     },
     {
@@ -4392,7 +4320,7 @@
         "type": "function",
         "z": "36270e4a731322c2",
         "name": "",
-        "func": "var room_temp = global.get(\"state.roomTemp.value\");\nvar heaterFan= false;\nif (msg.payload > room_temp +15){\n    heaterFan= true}\nmsg.payload=heaterFan;\nreturn msg;",
+        "func": "var room_temp = global.get(\"state.roomTemp.value\");\nvar heaterFan= false;\nif (msg.payload > room_temp +8){\n    heaterFan= true}\nmsg.payload=heaterFan;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4460,9 +4388,7 @@
         "x": 250,
         "y": 420,
         "wires": [
-            [
-                "9ba0bf69cc7f3755"
-            ]
+            []
         ]
     },
     {
